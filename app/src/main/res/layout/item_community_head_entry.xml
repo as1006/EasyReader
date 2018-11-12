@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/selector_common_bg">
+
+    <ImageView
+        android:id="@+id/iv_community_head_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/discover_icon_help"/>
+
+    <TextView
+        android:id="@+id/tv_community_head_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/text_color_3"
+        android:text="书荒互助"/>
+
+</LinearLayout>

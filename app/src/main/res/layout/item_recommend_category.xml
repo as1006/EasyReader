@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginTop="21dp"
+    android:layout_marginBottom="21dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="推荐榜单"
+            android:textSize="18sp"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/search_book_tv_refresh_hot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/main_color"
+            android:gravity="center_vertical"
+            android:text="查看全部" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <include
+            android:id="@+id/layout_recommend_book_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            layout="@layout/item_recommend_category_rank"/>
+
+        <View
+            android:layout_width="21dp"
+            android:layout_height="1dp"/>
+
+
+        <include
+            android:id="@+id/layout_recommend_book_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            layout="@layout/item_recommend_category_rank"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+
+        <include
+            android:id="@+id/layout_recommend_book_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            layout="@layout/item_recommend_category_rank"/>
+        <View
+            android:layout_width="21dp"
+            android:layout_height="1dp"/>
+
+        <include
+            android:id="@+id/layout_recommend_book_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            layout="@layout/item_recommend_category_rank"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+
+        <include
+            android:id="@+id/layout_recommend_book_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            layout="@layout/item_recommend_category_rank"/>
+
+        <View
+            android:layout_width="21dp"
+            android:layout_height="1dp"/>
+        <include
+            android:id="@+id/layout_recommend_book_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            layout="@layout/item_recommend_category_rank"/>
+    </LinearLayout>
+
+
+</LinearLayout>

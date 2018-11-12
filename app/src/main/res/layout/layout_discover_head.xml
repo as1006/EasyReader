@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="@color/nb.widget.button.normal">
+
+    <LinearLayout
+        android:id="@+id/ll_category_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/selector_common_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nb.fragment.find.sort"
+            android:drawableStart="@drawable/discover_icon_category"
+            android:drawablePadding="10dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@color/nb.divider.narrow"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_rank_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/selector_common_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nb.fragment.find.top"
+            android:drawableStart="@drawable/discover_icon_ranking"
+            android:drawablePadding="10dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="@color/nb.divider.narrow"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_booksheet_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/selector_common_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nb.fragment.find.topic"
+            android:drawableStart="@drawable/discover_icon_booksheet"
+            android:drawablePadding="10dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/text_color_3"/>
+
+    </LinearLayout>
+
+</LinearLayout>
