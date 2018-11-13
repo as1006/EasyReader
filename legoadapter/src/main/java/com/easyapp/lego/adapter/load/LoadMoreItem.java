@@ -27,11 +27,6 @@ public class LoadMoreItem extends BaseItem {
     }
 
     @Override
-    public int getItemViewType() {
-        return 9999;
-    }
-
-    @Override
     public int getLayoutId() {
         return R.layout.view_load_more_container;
     }

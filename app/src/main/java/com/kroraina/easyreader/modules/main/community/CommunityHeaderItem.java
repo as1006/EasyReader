@@ -18,11 +18,6 @@ public class CommunityHeaderItem extends BaseItem {
     }
 
     @Override
-    public int getItemViewType() {
-        return 5000;
-    }
-
-    @Override
     public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
         RecyclerView recyclerView = viewHolder.findViewById(R.id.rv_content);
         GridLayoutManager manager = new GridLayoutManager(recyclerView.getContext(),4);

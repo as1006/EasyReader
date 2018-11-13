@@ -18,11 +18,6 @@ public class SearchBarItem extends BaseItem {
     }
 
     @Override
-    public int getItemViewType() {
-        return 1000;
-    }
-
-    @Override
     public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
         LinearLayout mSearchBar = viewHolder.findViewById(R.id.ll_search_bar);
         mSearchBar.setOnClickListener(view -> {

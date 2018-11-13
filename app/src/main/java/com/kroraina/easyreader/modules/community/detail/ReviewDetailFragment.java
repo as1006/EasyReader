@@ -158,11 +158,6 @@ public class ReviewDetailFragment extends BaseMVPFragment<ReviewDetailContract.P
             super(context);
         }
 
-        @Override
-        public int getItemViewType() {
-            return 3000;
-        }
-
         public void setCommentDetail(ReviewDetailBean bean){
             reviewDetailBean = bean;
         }

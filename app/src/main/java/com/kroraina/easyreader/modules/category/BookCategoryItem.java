@@ -34,11 +34,6 @@ public class BookCategoryItem extends BaseItem {
     }
 
     @Override
-    public int getItemViewType() {
-        return 2000;
-    }
-
-    @Override
     public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
         TextView typeView = viewHolder.findViewById(R.id.sort_tv_type);
         ImageView coverView = viewHolder.findViewById(R.id.iv_cover);

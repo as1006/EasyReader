@@ -162,11 +162,6 @@ public class HelpsDetailFragment extends BaseMVPFragment<HelpsDetailContract.Pre
         }
 
         @Override
-        public int getItemViewType() {
-            return 3001;
-        }
-
-        @Override
         public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
             ImageView ivPortrait = viewHolder.findViewById(R.id.disc_detail_iv_portrait);
             TextView tvName = viewHolder.findViewById(R.id.disc_detail_tv_name);

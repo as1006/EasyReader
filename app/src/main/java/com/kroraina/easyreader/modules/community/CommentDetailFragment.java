@@ -163,11 +163,6 @@ public class CommentDetailFragment extends BaseMVPFragment<CommentDetailContract
         }
 
         @Override
-        public int getItemViewType() {
-            return 3002;
-        }
-
-        @Override
         public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
             ImageView ivPortrait = viewHolder.findViewById(R.id.disc_detail_iv_portrait);
             TextView tvName = viewHolder.findViewById(R.id.disc_detail_tv_name);

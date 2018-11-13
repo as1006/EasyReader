@@ -28,11 +28,6 @@ public class CommunityHeaderEntryItem extends BaseItem {
     }
 
     @Override
-    public int getItemViewType() {
-        return 5001;
-    }
-
-    @Override
     public void onClick() {
         if (communityType == CommunityType.HELP){
             startActivity(HelpDiscussionActivity.class);

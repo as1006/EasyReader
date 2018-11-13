@@ -29,11 +29,6 @@ public class RecommendVerticalItem extends BaseItem {
     }
 
     @Override
-    public int getItemViewType() {
-        return 1001;
-    }
-
-    @Override
     public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
         fillBookView(mRecommendBooks.get(0),viewHolder.findViewById(R.id.layout_recommend_book_1));
         fillBookView(mRecommendBooks.get(1),viewHolder.findViewById(R.id.layout_recommend_book_2));

@@ -3,6 +3,7 @@ package com.easyapp.lego.adapter.core;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
+import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,9 @@ import android.view.ViewGroup;
 import com.easyapp.lego.adapter.annotations.LayoutId;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
@@ -32,7 +35,8 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private List<BaseItem> mFooters = new ArrayList<>();
 
     private SparseArray<Class<? extends BaseItem>> viewType2ItemClazz = new SparseArray<>();
-    private SparseArray<Integer> viewType2LayoutId = new SparseArray<>();
+    private SparseIntArray viewType2LayoutId = new SparseIntArray();
+    private Map<Class<? extends BaseItem>,Integer> itemClazz2ViewType = new HashMap<>();
 
     @NonNull
     @Override
@@ -79,7 +83,7 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        return getItem(position).getItemViewType();
+        return itemClazz2ViewType.get(getItem(position).getClass());
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener){
@@ -91,50 +95,22 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public void addHeaderItem(BaseItem item){
-        viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
-        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
-        if (layoutId != null){
-            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
-        }else {
-            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
-        }
-
+        registerViewType(item);
         mHeaders.add(item);
     }
 
     public void addFooterItem(BaseItem item){
-        viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
-        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
-        if (layoutId != null){
-            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
-        }else {
-            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
-        }
-
+        registerViewType(item);
         mFooters.add(item);
     }
 
     public void addItem(int index , BaseItem item){
-        viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
-        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
-        if (layoutId != null){
-            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
-        }else {
-            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
-        }
-
+        registerViewType(item);
         mItems.add(index,item);
     }
 
     public void addItem(BaseItem item){
-        viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
-        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
-        if (layoutId != null){
-            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
-        }else {
-            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
-        }
-
+        registerViewType(item);
         mItems.add(item);
     }
 
@@ -172,6 +148,28 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         mItems.clear();
         addItems(list);
         notifyDataSetChanged();
+    }
+
+    private void registerViewType(BaseItem item){
+        int viewType = generateViewType(item);
+        viewType2ItemClazz.put(viewType,item.getClass());
+        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
+        if (layoutId != null){
+            viewType2LayoutId.put(viewType,layoutId.value());
+        }else {
+            viewType2LayoutId.put(viewType,item.getLayoutId());
+        }
+    }
+
+    private int generateViewType(BaseItem item){
+        Integer viewType = itemClazz2ViewType.get(item.getClass());
+        if (viewType == null){
+            viewType = itemClazz2ViewType.keySet().size();
+            itemClazz2ViewType.put(item.getClass(),viewType);
+            return viewType;
+        }else {
+            return viewType;
+        }
     }
 
 }

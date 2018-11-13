@@ -163,10 +163,6 @@ public class BookListDetailActivity extends BaseMVPActivity<BookListDetailContra
             super(context);
         }
 
-        @Override
-        public int getItemViewType() {
-            return 3003;
-        }
 
         @Override
         public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
