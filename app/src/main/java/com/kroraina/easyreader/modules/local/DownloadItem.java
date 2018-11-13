@@ -8,10 +8,10 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.annotations.LayoutId;
 import com.kroraina.easyreader.model.entity.DownloadTaskBean;
 import com.kroraina.easyreader.utils.FileUtils;
 

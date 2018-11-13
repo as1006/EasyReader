@@ -1,16 +1,15 @@
-package com.kroraina.easyreader.base.adapter.group;
+package com.easyapp.lego.adapter.group;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.annotations.LayoutId;
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;

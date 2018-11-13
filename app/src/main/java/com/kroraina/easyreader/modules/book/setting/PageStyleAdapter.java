@@ -2,8 +2,8 @@ package com.kroraina.easyreader.modules.book.setting;
 
 import android.support.annotation.NonNull;
 
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
+import com.easyapp.lego.adapter.core.BaseAdapter;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.ui.widget.page.PageStyle;
 
 

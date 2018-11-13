@@ -14,9 +14,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
 import com.kroraina.easyreader.base.annotations.ActivityUI;
 import com.kroraina.easyreader.base.annotations.NavigationBar;
 import com.kroraina.easyreader.model.bean.BookDetailRecommendListBean;

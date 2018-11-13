@@ -7,10 +7,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.annotations.LayoutId;
 import com.kroraina.easyreader.model.entity.CollBookBean;
 import com.kroraina.easyreader.modules.book.read.ReadActivity;
 import com.kroraina.easyreader.utils.Constant;

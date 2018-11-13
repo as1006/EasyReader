@@ -3,9 +3,9 @@ package com.kroraina.easyreader.modules.sheetlist;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
+import com.easyapp.lego.adapter.core.BaseAdapter;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;

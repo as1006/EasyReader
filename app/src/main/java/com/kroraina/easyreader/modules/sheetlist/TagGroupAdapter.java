@@ -3,9 +3,8 @@ package com.kroraina.easyreader.modules.sheetlist;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
+import com.easyapp.lego.adapter.group.BaseGroupAdapter;
 import com.kroraina.easyreader.model.bean.BookTagBean;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.group.BaseGroupAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

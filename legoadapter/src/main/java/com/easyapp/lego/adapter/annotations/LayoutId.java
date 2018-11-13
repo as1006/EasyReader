@@ -1,4 +1,4 @@
-package com.kroraina.easyreader.base.annotations;
+package com.easyapp.lego.adapter.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

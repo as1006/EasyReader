@@ -3,9 +3,9 @@ package com.kroraina.easyreader.modules.community.discussion.help;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
+import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
-import com.kroraina.easyreader.base.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.event.SelectorEvent;
 import com.kroraina.easyreader.model.bean.BookHelpsBean;

@@ -4,16 +4,16 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
+import com.kroraina.easyreader.base.fragment.BaseFragment;
 import com.kroraina.easyreader.model.bean.BookSubSortBean;
 import com.kroraina.easyreader.model.bean.packages.BookSubSortPackage;
 import com.kroraina.easyreader.model.remote.RemoteRepository;
 import com.kroraina.easyreader.modules.category.detail.BookSortListActivity;
-import com.kroraina.easyreader.base.fragment.BaseFragment;
-import com.kroraina.easyreader.utils.LogUtils;
-import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerGridItemDecoration;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
+import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.kroraina.easyreader.utils.LogUtils;
 
 import butterknife.BindView;
 import io.reactivex.Single;

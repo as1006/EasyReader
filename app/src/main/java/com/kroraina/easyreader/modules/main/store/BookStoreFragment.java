@@ -12,9 +12,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseActivity;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.model.bean.BookListBean;
 import com.kroraina.easyreader.model.entity.CollBookBean;

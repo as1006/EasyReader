@@ -1,4 +1,4 @@
-package com.kroraina.easyreader.base.adapter;
+package com.easyapp.lego.adapter.core;
 
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;

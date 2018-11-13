@@ -4,11 +4,10 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
+import com.easyapp.lego.adapter.group.BaseGroupItem;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.adapter.group.BaseGroupItem;
-import com.kroraina.easyreader.base.annotations.LayoutId;
 
 import java.util.List;
 

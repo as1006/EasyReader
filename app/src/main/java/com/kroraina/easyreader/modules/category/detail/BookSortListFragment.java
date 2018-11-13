@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
-import com.kroraina.easyreader.base.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.event.BookSubSortEvent;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;

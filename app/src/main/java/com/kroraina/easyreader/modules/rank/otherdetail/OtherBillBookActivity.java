@@ -8,9 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
 import com.kroraina.easyreader.model.bean.BillBookBean;
 import com.kroraina.easyreader.modules.rank.detail.BillBookContract;
 import com.kroraina.easyreader.modules.rank.detail.BillBookItem;

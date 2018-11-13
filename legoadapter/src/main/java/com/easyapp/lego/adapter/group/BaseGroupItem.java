@@ -1,8 +1,8 @@
-package com.kroraina.easyreader.base.adapter.group;
+package com.easyapp.lego.adapter.group;
 
 import android.content.Context;
 
-import com.kroraina.easyreader.base.adapter.BaseItem;
+import com.easyapp.lego.adapter.core.BaseItem;
 
 import java.util.List;
 

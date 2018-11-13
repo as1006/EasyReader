@@ -3,13 +3,13 @@ package com.kroraina.easyreader.modules.community.discuss;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
+import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.model.flag.BookSort;
+import com.kroraina.easyreader.base.annotations.FragmentUI;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
+import com.kroraina.easyreader.model.flag.BookSort;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.annotations.FragmentUI;
 
 import java.util.List;
 

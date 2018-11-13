@@ -35,8 +35,6 @@ import android.widget.TextView;
 
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.adapter.BaseItem;
 import com.kroraina.easyreader.model.entity.BookChapterBean;
 import com.kroraina.easyreader.model.entity.CollBookBean;
 import com.kroraina.easyreader.model.local.BookRepository;
@@ -468,13 +466,10 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
             }
         });
 
-        mCategoryAdapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
-            @Override
-            public boolean onItemClick(BaseItem item, int position) {
-                mDlSlide.closeDrawer(Gravity.START);
-                mPageLoader.skipToChapter(position);
-                return true;
-            }
+        mCategoryAdapter.setOnItemClickListener((item, position) -> {
+            mDlSlide.closeDrawer(Gravity.START);
+            mPageLoader.skipToChapter(position);
+            return true;
         });
 
         mTvCategory.setOnClickListener(

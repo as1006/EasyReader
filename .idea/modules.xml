@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EasyReader.iml" filepath="$PROJECT_DIR$/EasyReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legoadapter/legoadapter.iml" filepath="$PROJECT_DIR$/legoadapter/legoadapter.iml" />
     </modules>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package com.kroraina.easyreader.base.adapter;
+package com.easyapp.lego.adapter.core;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +18,7 @@ public abstract class BaseItem {
     }
 
     public abstract void onBindViewHolder(@NonNull BaseViewHolder viewHolder);
-
+    public int getLayoutId(){return 0;}
     public void onClick(){}
 
 

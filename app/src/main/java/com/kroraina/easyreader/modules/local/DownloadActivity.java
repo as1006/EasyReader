@@ -9,10 +9,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.easyapp.lego.adapter.core.BaseAdapter;
+import com.easyapp.lego.adapter.core.BaseItem;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseActivity;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.adapter.BaseItem;
 import com.kroraina.easyreader.model.entity.DownloadTaskBean;
 import com.kroraina.easyreader.service.DownloadService;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;

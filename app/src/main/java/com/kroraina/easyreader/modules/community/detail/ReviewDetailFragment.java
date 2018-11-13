@@ -12,12 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseAdapter;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
+import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.adapter.load.LoadMoreAdapter;
-import com.kroraina.easyreader.base.annotations.LayoutId;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.model.bean.AuthorBean;
 import com.kroraina.easyreader.model.bean.BookHelpfulBean;

@@ -5,12 +5,12 @@ import android.support.annotation.NonNull;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.annotations.LayoutId;
-import com.kroraina.easyreader.modules.community.discussion.review.BookReviewActivity;
 import com.kroraina.easyreader.modules.community.discussion.help.HelpDiscussionActivity;
+import com.kroraina.easyreader.modules.community.discussion.review.BookReviewActivity;
 import com.kroraina.easyreader.modules.community.discussion.topic.TopicDiscussionActivity;
 
 @LayoutId(R.layout.item_community_head_entry)

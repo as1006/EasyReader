@@ -4,11 +4,11 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.LinearLayout;
 
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.annotations.LayoutId;
 import com.kroraina.easyreader.modules.search.SearchActivity;
-import com.kroraina.easyreader.base.adapter.BaseItem;
 
 @LayoutId(R.layout.item_search_bar)
 public class SearchBarItem extends BaseItem {

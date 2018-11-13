@@ -5,12 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.model.bean.BillBookBean;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
-import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.kroraina.easyreader.model.bean.BillBookBean;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
+import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 
 import java.util.List;
 

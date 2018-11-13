@@ -8,15 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.easyapp.lego.adapter.annotations.LayoutId;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.modules.main.community.CommunityType;
 import com.kroraina.easyreader.modules.community.detail.DiscDetailActivity;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
+import com.kroraina.easyreader.modules.main.community.CommunityType;
+import com.kroraina.easyreader.ui.widget.transform.CircleTransform;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.StringUtils;
-import com.kroraina.easyreader.ui.widget.transform.CircleTransform;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.annotations.LayoutId;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.kroraina.easyreader.base.adapter;
+package com.easyapp.lego.adapter.core;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kroraina.easyreader.base.annotations.LayoutId;
+import com.easyapp.lego.adapter.annotations.LayoutId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,17 +32,19 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private List<BaseItem> mFooters = new ArrayList<>();
 
     private SparseArray<Class<? extends BaseItem>> viewType2ItemClazz = new SparseArray<>();
+    private SparseArray<Integer> viewType2LayoutId = new SparseArray<>();
 
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Class<? extends BaseItem> clazz = viewType2ItemClazz.get(viewType);
 
-        LayoutId layoutId = clazz.getAnnotation(LayoutId.class);
-        if (layoutId == null){
-            throw new RuntimeException(clazz.getSimpleName()+" must have LayoutId Annotation");
+        int layoutResId = viewType2LayoutId.get(viewType);
+        if (layoutResId == 0){
+            throw new RuntimeException(clazz.getSimpleName()+" must have LayoutId Annotation or override getlayoutId");
         }
-        View view = LayoutInflater.from(parent.getContext()).inflate(layoutId.value(),parent,false);
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutResId,parent,false);
 
         BaseViewHolder baseViewHolder = new BaseViewHolder(view);
         return baseViewHolder;
@@ -90,21 +92,49 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public void addHeaderItem(BaseItem item){
         viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
+        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
+        if (layoutId != null){
+            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
+        }else {
+            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
+        }
+
         mHeaders.add(item);
     }
 
     public void addFooterItem(BaseItem item){
         viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
+        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
+        if (layoutId != null){
+            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
+        }else {
+            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
+        }
+
         mFooters.add(item);
     }
 
     public void addItem(int index , BaseItem item){
         viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
+        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
+        if (layoutId != null){
+            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
+        }else {
+            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
+        }
+
         mItems.add(index,item);
     }
 
     public void addItem(BaseItem item){
         viewType2ItemClazz.put(item.getItemViewType(),item.getClass());
+        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
+        if (layoutId != null){
+            viewType2LayoutId.put(item.getItemViewType(),layoutId.value());
+        }else {
+            viewType2LayoutId.put(item.getItemViewType(),item.getLayoutId());
+        }
+
         mItems.add(item);
     }
 

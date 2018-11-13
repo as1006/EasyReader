@@ -2,8 +2,8 @@ package com.kroraina.easyreader.modules.local;
 
 import android.content.Context;
 
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.adapter.BaseItem;
+import com.easyapp.lego.adapter.core.BaseAdapter;
+import com.easyapp.lego.adapter.core.BaseItem;
 import com.kroraina.easyreader.model.local.BookRepository;
 
 import java.io.File;

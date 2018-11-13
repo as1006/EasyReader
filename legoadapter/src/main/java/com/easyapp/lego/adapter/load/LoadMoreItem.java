@@ -1,18 +1,16 @@
-package com.kroraina.easyreader.base.adapter.load;
+package com.easyapp.lego.adapter.load;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseItem;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
-import com.kroraina.easyreader.base.annotations.LayoutId;
+import com.easyapp.lego.adapter.R;
+import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
-@LayoutId(R.layout.view_load_more_container)
 public class LoadMoreItem extends BaseItem {
 
     public static final int TYPE_HIDE = 0;
@@ -31,6 +29,11 @@ public class LoadMoreItem extends BaseItem {
     @Override
     public int getItemViewType() {
         return 9999;
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.view_load_more_container;
     }
 
     @Override

@@ -2,12 +2,9 @@ package com.kroraina.easyreader.modules.book.read;
 
 import android.support.annotation.NonNull;
 
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
-import com.kroraina.easyreader.base.adapter.BaseViewHolder;
+import com.easyapp.lego.adapter.core.BaseAdapter;
+import com.easyapp.lego.adapter.core.BaseViewHolder;
 
-/**
- * Created on 17-6-5.
- */
 
 public class CategoryAdapter extends BaseAdapter {
     private int currentSelected = 0;

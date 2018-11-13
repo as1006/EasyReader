@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
-import com.kroraina.easyreader.base.adapter.BaseAdapter;
 import com.kroraina.easyreader.base.annotations.NavigationBar;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 
