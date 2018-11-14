@@ -26,24 +26,59 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     private OnItemClickListener mOnItemClickListener;
-
     private OnItemLongClickListener mOnItemLongClickListener;
 
-    private List<BaseItem> mItems = new ArrayList<>();
+    public static class ViewItemManager{
+        private SparseArray<Class<? extends BaseItem>> viewType2ItemClazz = new SparseArray<>();
+        private SparseIntArray viewType2LayoutId = new SparseIntArray();
+        private Map<Class<? extends BaseItem>,Integer> itemClazz2ViewType = new HashMap<>();
 
+        public void registerViewType(BaseItem item){
+            int viewType = generateViewType(item);
+            viewType2ItemClazz.put(viewType,item.getClass());
+            LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
+            if (layoutId != null){
+                viewType2LayoutId.put(viewType,layoutId.value());
+            }else {
+                viewType2LayoutId.put(viewType,item.getLayoutId());
+            }
+        }
+        private int generateViewType(BaseItem item){
+            Integer viewType = itemClazz2ViewType.get(item.getClass());
+            if (viewType == null){
+                viewType = itemClazz2ViewType.keySet().size();
+                itemClazz2ViewType.put(item.getClass(),viewType);
+                return viewType;
+            }else {
+                return viewType;
+            }
+        }
+
+        public int getViewType(Class<? extends BaseItem> itemClass){
+            return itemClazz2ViewType.get(itemClass);
+        }
+
+        public int getLayoutId(int viewType){
+            return viewType2LayoutId.get(viewType);
+        }
+
+        public Class<? extends BaseItem> getItemClass(int viewType){
+            return viewType2ItemClazz.get(viewType);
+        }
+    }
+
+    private List<BaseItem> mItems = new ArrayList<>();
     private List<BaseItem> mHeaders = new ArrayList<>();
     private List<BaseItem> mFooters = new ArrayList<>();
 
-    private SparseArray<Class<? extends BaseItem>> viewType2ItemClazz = new SparseArray<>();
-    private SparseIntArray viewType2LayoutId = new SparseIntArray();
-    private Map<Class<? extends BaseItem>,Integer> itemClazz2ViewType = new HashMap<>();
+    private ViewItemManager mViewItemManager = new ViewItemManager();
 
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Class<? extends BaseItem> clazz = viewType2ItemClazz.get(viewType);
+        Class<? extends BaseItem> clazz = mViewItemManager.getItemClass(viewType);
 
-        int layoutResId = viewType2LayoutId.get(viewType);
+        int layoutResId = mViewItemManager.getLayoutId(viewType);
         if (layoutResId == 0){
             throw new RuntimeException(clazz.getSimpleName()+" must have LayoutId Annotation or override getlayoutId");
         }
@@ -83,7 +118,7 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        return itemClazz2ViewType.get(getItem(position).getClass());
+        return mViewItemManager.getViewType(getItem(position).getClass());
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener){
@@ -95,22 +130,22 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public void addHeaderItem(BaseItem item){
-        registerViewType(item);
+        mViewItemManager.registerViewType(item);
         mHeaders.add(item);
     }
 
     public void addFooterItem(BaseItem item){
-        registerViewType(item);
+        mViewItemManager.registerViewType(item);
         mFooters.add(item);
     }
 
     public void addItem(int index , BaseItem item){
-        registerViewType(item);
+        mViewItemManager.registerViewType(item);
         mItems.add(index,item);
     }
 
     public void addItem(BaseItem item){
-        registerViewType(item);
+        mViewItemManager.registerViewType(item);
         mItems.add(item);
     }
 
@@ -149,27 +184,4 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         addItems(list);
         notifyDataSetChanged();
     }
-
-    private void registerViewType(BaseItem item){
-        int viewType = generateViewType(item);
-        viewType2ItemClazz.put(viewType,item.getClass());
-        LayoutId layoutId = item.getClass().getAnnotation(LayoutId.class);
-        if (layoutId != null){
-            viewType2LayoutId.put(viewType,layoutId.value());
-        }else {
-            viewType2LayoutId.put(viewType,item.getLayoutId());
-        }
-    }
-
-    private int generateViewType(BaseItem item){
-        Integer viewType = itemClazz2ViewType.get(item.getClass());
-        if (viewType == null){
-            viewType = itemClazz2ViewType.keySet().size();
-            itemClazz2ViewType.put(item.getClass(),viewType);
-            return viewType;
-        }else {
-            return viewType;
-        }
-    }
-
 }
