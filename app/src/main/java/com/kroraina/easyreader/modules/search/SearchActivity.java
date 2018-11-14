@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.easyapp.lego.adapter.core.BaseAdapter;
-import com.easyapp.lego.adapter.core.BaseItem;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
 import com.kroraina.easyreader.base.annotations.ActivityUI;
@@ -28,9 +27,6 @@ import java.util.List;
 import butterknife.BindView;
 import me.gujun.android.taggroup.TagGroup;
 
-/**
- * Created by 楼兰破 on 2018-10-28.
- */
 @ActivityUI(layoutId = R.layout.activity_search)
 public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> implements SearchContract.View{
 
@@ -48,8 +44,7 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
     TextView mTvRefreshHot;
     @BindView(R.id.search_tg_hot)
     TagGroup mTgHot;
-/*    @BindView(R.id.search_rv_history)
-    RecyclerView mRvHistory;*/
+
     @BindView(R.id.refresh_layout)
     RefreshLayout mRlRefresh;
     @BindView(R.id.refresh_rv_content)
@@ -89,22 +84,19 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
         mRvHistory.setLayoutManager(new LinearLayoutManager(this));
         mRvHistory.addItemDecoration(new DividerItemDecoration(this));
 
-        mHistoryAdapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
-            @Override
-            public boolean onItemClick(BaseItem item, int position) {
-                if (item instanceof SearchHistoryItem){
+        mHistoryAdapter.setOnItemClickListener((item, position) -> {
+            if (item instanceof SearchHistoryItem){
 
-                    mRlRefresh.setVisibility(View.VISIBLE);
-                    mRlRefresh.showLoading();
+                mRlRefresh.setVisibility(View.VISIBLE);
+                mRlRefresh.showLoading();
 
-                    String searchKey = ((SearchHistoryItem) item).bean.getSearchKey();
-                    mPresenter.searchBook(searchKey);
-                    insertSearchHistory(searchKey);
+                String searchKey = ((SearchHistoryItem) item).bean.getSearchKey();
+                mPresenter.searchBook(searchKey);
+                insertSearchHistory(searchKey);
 
-                    toggleKeyboard();
-                }
-                return true;
+                toggleKeyboard();
             }
+            return true;
         });
 
         mRvHistory.setAdapter(mHistoryAdapter);

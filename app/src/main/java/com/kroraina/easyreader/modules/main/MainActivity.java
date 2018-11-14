@@ -1,6 +1,5 @@
 package com.kroraina.easyreader.modules.main;
 
-import android.app.Dialog;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
@@ -10,8 +9,6 @@ import com.kroraina.easyreader.modules.main.community.CommunityFragment;
 import com.kroraina.easyreader.modules.main.discover.DiscoverFragment;
 import com.kroraina.easyreader.modules.main.shelf.BookShelfFragment;
 import com.kroraina.easyreader.modules.main.store.BookStoreFragment;
-import com.kroraina.easyreader.utils.Constant;
-import com.kroraina.easyreader.utils.SharedPreUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,27 +31,6 @@ public class MainActivity extends BaseTabActivity{
         String [] titles = getResources().getStringArray(R.array.nb_fragment_title);
         return Arrays.asList(titles);
     }
-
-    @Override
-    protected void initWidget() {
-        super.initWidget();
-        //性别选择框
-        //showSexChooseDialog();
-    }
-
-    /**
-     * 如果之前没有选择过性别，那么就弹框选择吧
-     */
-    private void showSexChooseDialog(){
-        String sex = SharedPreUtils.getInstance().getString(Constant.SHARED_SEX);
-        if (sex.equals("")){
-            mVp.postDelayed(()-> {
-                Dialog dialog = new SexChooseDialog(this);
-                dialog.show();
-            },500);
-        }
-    }
-
 
     /**
      * 两次返回键，退出app

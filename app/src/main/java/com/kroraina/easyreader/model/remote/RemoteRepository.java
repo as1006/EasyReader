@@ -13,6 +13,8 @@ import com.kroraina.easyreader.model.bean.CommentDetailBean;
 import com.kroraina.easyreader.model.bean.HotCommentBean;
 import com.kroraina.easyreader.model.bean.ReviewDetailBean;
 import com.kroraina.easyreader.model.bean.packages.BookSubSortPackage;
+import com.kroraina.easyreader.model.bean.packages.HotWordPackage;
+import com.kroraina.easyreader.model.bean.packages.KeyWordPackage;
 import com.kroraina.easyreader.model.entity.BookChapterBean;
 import com.kroraina.easyreader.model.entity.CollBookBean;
 import com.kroraina.easyreader.modules.book.detail.BookDetailBean;
@@ -250,8 +252,7 @@ public class RemoteRepository {
      * @return
      */
     public Single<List<String>> getHotWords(){
-        return mBookApi.getHotWordPackage()
-                .map(bean -> bean.getHotWords());
+        return mBookApi.getHotWordPackage().map(HotWordPackage::getHotWords);
     }
 
     /**
@@ -260,8 +261,7 @@ public class RemoteRepository {
      * @return
      */
     public Single<List<String>> getKeyWords(String query){
-        return mBookApi.getKeyWordPacakge(query)
-                .map(bean -> bean.getKeywords());
+        return mBookApi.getKeyWordPacakge(query).map(KeyWordPackage::getKeywords);
 
     }
 
@@ -271,8 +271,7 @@ public class RemoteRepository {
      * @return
      */
     public Single<List<SearchBookPackage.BooksBean>> getSearchBooks(String query){
-        return mBookApi.getSearchBookPackage(query)
-                .map(bean -> bean.getBooks());
+        return mBookApi.getSearchBookPackage(query).map(SearchBookPackage::getBooks);
     }
 
 

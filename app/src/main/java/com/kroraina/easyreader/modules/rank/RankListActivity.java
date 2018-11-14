@@ -3,13 +3,13 @@ package com.kroraina.easyreader.modules.rank;
 import android.view.View;
 import android.widget.ExpandableListView;
 
-import com.kroraina.easyreader.modules.rank.detail.BillBookActivity;
-import com.kroraina.easyreader.modules.rank.otherdetail.OtherBillBookActivity;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
-import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 import com.kroraina.easyreader.base.annotations.ActivityUI;
 import com.kroraina.easyreader.base.annotations.NavigationBar;
+import com.kroraina.easyreader.modules.rank.detail.BillBookActivity;
+import com.kroraina.easyreader.modules.rank.otherdetail.OtherBillBookActivity;
+import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,6 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * Created on 17-4-23.
  * 数据的初始化，Expand的配置
  * 1. 查看Api制作数据Bean，制作相应的Adapter
  * 2. 初始化Expandable
