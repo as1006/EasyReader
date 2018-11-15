@@ -14,15 +14,10 @@ import com.kroraina.easyreader.modules.community.discussion.help.HelpDiscussionA
 @LayoutId(R.layout.item_section)
 public class DiscoverSectionItem extends BaseItem {
 
-
-    private String name;
-    private int drawableId;
     private DiscoverType findType;
 
-    public DiscoverSectionItem(Context context, String name, int drawableId, DiscoverType findType){
+    public DiscoverSectionItem(Context context, DiscoverType findType){
         super(context);
-        this.name = name;
-        this.drawableId = drawableId;
         this.findType = findType;
     }
 
@@ -31,8 +26,8 @@ public class DiscoverSectionItem extends BaseItem {
         ImageView mIconView = viewHolder.findViewById(R.id.section_iv_icon);
         TextView mNameView = viewHolder.findViewById(R.id.section_tv_name);
 
-        mNameView.setText(name);
-        mIconView.setImageResource(drawableId);
+        mNameView.setText(findType.getTypeName());
+        mIconView.setImageResource(findType.getIconId());
     }
 
     @Override

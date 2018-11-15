@@ -29,7 +29,6 @@ public class DiscoverFragment extends BaseListFragment {
     @BindView(R.id.ll_booksheet_container)
     public View mBookSheetEntryView;
 
-
     @Override
     protected void initClick() {
         super.initClick();
@@ -44,7 +43,7 @@ public class DiscoverFragment extends BaseListFragment {
         super.processLogic();
         List<DiscoverSectionItem> sections = new ArrayList<>();
         for (DiscoverType type : DiscoverType.values()){
-            sections.add(new DiscoverSectionItem(getContext(),type.getTypeName(),type.getIconId(),type));
+            sections.add(new DiscoverSectionItem(getContext(),type));
         }
         mAdapter.addItems(sections);
         mAdapter.notifyDataSetChanged();

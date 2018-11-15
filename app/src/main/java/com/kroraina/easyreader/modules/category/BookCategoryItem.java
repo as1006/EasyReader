@@ -7,34 +7,28 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
+import com.easyapp.lego.adapter.bean.BaseBeanItem;
 import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.utils.Constant;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @LayoutId(R.layout.item_sort)
-public class BookCategoryItem extends BaseItem {
+public class BookCategoryItem extends BaseBeanItem<BookSortBean> {
 
-    public static List<BookCategoryItem> initFromBookSortBeans(Context context,List<BookSortBean> sortBeans){
-        List<BookCategoryItem> results = new ArrayList<>();
-        for (BookSortBean sortBean : sortBeans){
-            results.add(new BookCategoryItem(context,sortBean));
-        }
-        return results;
-    }
-
-    public BookSortBean bean;
+//    public static List<BookCategoryItem> initFromBookSortBeans(Context context,List<BookSortBean> sortBeans){
+//        List<BookCategoryItem> results = new ArrayList<>();
+//        for (BookSortBean sortBean : sortBeans){
+//            results.add(new BookCategoryItem(context,sortBean));
+//        }
+//        return results;
+//    }
 
     public BookCategoryItem(Context context,BookSortBean bean){
-        super(context);
-        this.bean = bean;
+        super(context,bean);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewWithBean(@NonNull BaseViewHolder viewHolder, BookSortBean bean) {
         TextView typeView = viewHolder.findViewById(R.id.sort_tv_type);
         ImageView coverView = viewHolder.findViewById(R.id.iv_cover);
         TextView countView = viewHolder.findViewById(R.id.sort_tv_count);

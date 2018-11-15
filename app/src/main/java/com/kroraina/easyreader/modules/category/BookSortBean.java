@@ -1,9 +1,11 @@
 package com.kroraina.easyreader.modules.category;
 
+import com.easyapp.lego.adapter.bean.BaseBean;
+
 import java.util.List;
 
 
-public class BookSortBean {
+public class BookSortBean extends BaseBean {
     /**
      * name : 玄幻
      * bookCount : 437252

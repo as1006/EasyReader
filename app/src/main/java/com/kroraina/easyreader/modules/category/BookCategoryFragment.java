@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
+import com.easyapp.lego.adapter.bean.BaseBeanAdapter;
+import com.easyapp.lego.adapter.bean.BaseBeanItem;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.fragment.BaseFragment;
 import com.kroraina.easyreader.model.bean.BookSubSortBean;
@@ -36,7 +37,7 @@ public class BookCategoryFragment extends BaseFragment implements BookSortContra
     @BindView(R.id.rv_book_category)
     RecyclerView mRvBoy;
 
-    private BaseAdapter mBookAdapter;
+    private BaseBeanAdapter mBookAdapter;
 
     private BookSubSortPackage mSubSortPackage;
     /**********************init***********************************/
@@ -60,10 +61,11 @@ public class BookCategoryFragment extends BaseFragment implements BookSortContra
     }
 
     private void setUpAdapter(){
-        mBookAdapter = new BaseAdapter();
+        mBookAdapter = new BaseBeanAdapter()
+                .registerItemBuilder(BookSortBean.class, (BaseBeanItem.ItemBuilder<BookCategoryItem, BookSortBean>) bean -> new BookCategoryItem(getContext(),bean));
+
 
         RecyclerView.ItemDecoration itemDecoration = new DividerGridItemDecoration(getContext(),R.drawable.shape_divider_row,R.drawable.shape_divider_col);
-
         mRvBoy.setLayoutManager(new GridLayoutManager(getContext(),SPAN_COUNT));
         mRvBoy.addItemDecoration(itemDecoration);
         mRvBoy.setAdapter(mBookAdapter);
@@ -132,9 +134,9 @@ public class BookCategoryFragment extends BaseFragment implements BookSortContra
         }
         else {
             if (mIsMale){
-                mBookAdapter.refreshItems(BookCategoryItem.initFromBookSortBeans(getContext(),sortPackage.getMale()));
+                mBookAdapter.refresh(sortPackage.getMale());
             }else {
-                mBookAdapter.refreshItems(BookCategoryItem.initFromBookSortBeans(getContext(),sortPackage.getFemale()));
+                mBookAdapter.refresh(sortPackage.getFemale());
             }
         }
         mSubSortPackage = subSortPackage;
