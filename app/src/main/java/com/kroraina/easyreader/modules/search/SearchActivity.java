@@ -91,7 +91,7 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
                 mRlRefresh.showLoading();
 
                 String searchKey = ((SearchHistoryItem) item).bean.getSearchKey();
-                getMPresenter().searchBook(searchKey);
+                mPresenter.searchBook(searchKey);
                 insertSearchHistory(searchKey);
 
                 toggleKeyboard();
@@ -164,13 +164,13 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
                 String query = s.toString().trim();
                 if (isTag){
                     mRlRefresh.showLoading();
-                    getMPresenter().searchBook(query);
+                    mPresenter.searchBook(query);
                     insertSearchHistory(query);
                     isTag = false;
                 }
                 else {
                     //传递
-                    getMPresenter().searchKeyWord(query);
+                    mPresenter.searchKeyWord(query);
                 }
             }
 
@@ -208,7 +208,7 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
                 (item, pos) -> {
                     if (item instanceof KeyWordItem){
                         mRlRefresh.showLoading();
-                        getMPresenter().searchBook(((KeyWordItem) item).keyword);
+                        mPresenter.searchBook(((KeyWordItem) item).keyword);
                         insertSearchHistory(((KeyWordItem) item).keyword);
                         toggleKeyboard();
                     }
@@ -236,7 +236,7 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
             //开始搜索
             mRlRefresh.setVisibility(View.VISIBLE);
             mRlRefresh.showLoading();
-            getMPresenter().searchBook(query);
+            mPresenter.searchBook(query);
             insertSearchHistory(query);
             //显示正在加载
             mRlRefresh.showLoading();
@@ -255,7 +255,7 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
         //默认隐藏
         mRlRefresh.setVisibility(View.GONE);
         //获取热词
-        getMPresenter().searchHotWord();
+        mPresenter.searchHotWord();
     }
 
     @Override
