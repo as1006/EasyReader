@@ -1,10 +1,12 @@
 package com.kroraina.easyreader.modules.rank
 
 import com.kroraina.easyreader.R
+import com.kroraina.easyreader.base.activity.BaseMVPActivity
 import com.kroraina.easyreader.base.annotations.ActivityUI
 import com.kroraina.easyreader.base.annotations.NavigationBar
 import com.kroraina.easyreader.modules.rank.detail.BillBookActivity
 import com.kroraina.easyreader.modules.rank.otherdetail.OtherBillBookActivity
+import kotlinx.android.synthetic.main.activity_bilboard.*
 import java.util.*
 
 

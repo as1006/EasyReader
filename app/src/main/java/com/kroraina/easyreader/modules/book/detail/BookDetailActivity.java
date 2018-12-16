@@ -151,7 +151,7 @@ public class BookDetailActivity extends BaseMVPActivity<BookDetailContract.Prese
 
                         isCollected = false;
                     } else {
-                        getMPresenter().addToBookShelf(mCollBookBean);
+                       mPresenter.addToBookShelf(mCollBookBean);
                         mTvChase.setText(getResources().getString(R.string.nb_book_detail_give_up));
 
                         //修改背景
@@ -179,7 +179,7 @@ public class BookDetailActivity extends BaseMVPActivity<BookDetailContract.Prese
     protected void processLogic() {
         super.processLogic();
         mRefreshLayout.showLoading();
-        getMPresenter().refreshBookDetail(mBookId);
+       mPresenter.refreshBookDetail(mBookId);
     }
 
     @Override
