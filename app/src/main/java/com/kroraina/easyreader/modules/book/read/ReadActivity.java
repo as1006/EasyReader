@@ -388,7 +388,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
                         for (TxtChapter chapter : chapters) {
                             chapter.setTitle(StringUtils.convertCC(chapter.getTitle(), mPvPage.getContext()));
                         }
-                        mCategoryAdapter.refreshItems(CategoryItem.initFrom(ReadActivity.this,chapters));
+                        mCategoryAdapter.refreshBeans(chapters);
                     }
 
                     @Override

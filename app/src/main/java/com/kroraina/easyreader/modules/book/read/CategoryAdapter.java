@@ -3,14 +3,15 @@ package com.kroraina.easyreader.modules.book.read;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.xincubate.lego.adapter.bean.BaseBeanAdapter;
 import com.xincubate.lego.adapter.core.BaseAdapter;
 import com.xincubate.lego.adapter.core.BaseViewHolder;
 
 
-public class CategoryAdapter extends BaseAdapter {
+public class CategoryAdapter extends BaseBeanAdapter {
     private int currentSelected = 0;
 
-    public CategoryAdapter(Context context) {
+    CategoryAdapter(Context context) {
         super(context);
     }
 

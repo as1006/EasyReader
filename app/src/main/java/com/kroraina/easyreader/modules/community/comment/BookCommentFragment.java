@@ -9,6 +9,7 @@ import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.model.flag.BookSort;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
+import com.xincubate.lego.adapter.bean.BaseBeanAdapter;
 import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class BookCommentFragment extends BaseMVPFragment<BookCommentContact.Pres
 
     private String mBookId;
 
-    private BaseAdapter mDiscCommentAdapter;
+    private BaseBeanAdapter mDiscCommentAdapter;
 
     private BookSort mBookSort = BookSort.DEFAULT;
     private int mStart = 0;
@@ -44,7 +45,7 @@ public class BookCommentFragment extends BaseMVPFragment<BookCommentContact.Pres
     private void setUpAdapter() {
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));
-        mDiscCommentAdapter = new BaseAdapter(getActivity());
+        mDiscCommentAdapter = new BaseBeanAdapter(getActivity());
         mRvContent.setAdapter(mDiscCommentAdapter);
     }
 
@@ -87,14 +88,14 @@ public class BookCommentFragment extends BaseMVPFragment<BookCommentContact.Pres
 
     @Override
     public void finishRefresh(List<BookCommentBean> beans) {
-        mDiscCommentAdapter.refreshItems(BookCommentItem.initFrom(getContext(),beans));
+        mDiscCommentAdapter.refreshBeans(beans);
         mStart = beans.size();
         mRvContent.finishRefresh();
     }
 
     @Override
     public void finishLoading(List<BookCommentBean> beans) {
-        mDiscCommentAdapter.addItems(BookCommentItem.initFrom(getContext(),beans));
+        mDiscCommentAdapter.addBeans(beans);
         mStart += beans.size();
     }
 

@@ -62,7 +62,6 @@ public class BookCategoryFragment extends BaseFragment implements BookSortContra
 
     private void setUpAdapter(){
         mBookAdapter = new BaseBeanAdapter(getActivity());
-        LayoutCenter.getInstance().registerItemBuilder(BookSortBean.class, BookCategoryItem::new);
 
         RecyclerView.ItemDecoration itemDecoration = new DividerGridItemDecoration(getContext(),R.drawable.shape_divider_row,R.drawable.shape_divider_col);
         mRvBoy.setLayoutManager(new GridLayoutManager(getContext(),SPAN_COUNT));

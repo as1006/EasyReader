@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.ui.widget.page.TxtChapter;
 import com.kroraina.easyreader.utils.BookManager;
+import com.xincubate.lego.adapter.bean.BaseBeanItem;
 import com.xincubate.lego.adapter.core.BaseItem;
 import com.xincubate.lego.adapter.core.BaseViewHolder;
 import com.xincubate.lego.annotation.LegoItem;
@@ -18,21 +19,10 @@ import java.util.List;
 
 
 @LegoItem
-public class CategoryItem extends BaseItem {
+public class CategoryItem extends BaseBeanItem<TxtChapter> {
 
-    public static List<CategoryItem> initFrom(Context context, List<TxtChapter> beans){
-        List<CategoryItem> results = new ArrayList<>();
-        for (TxtChapter bean : beans){
-            results.add(new CategoryItem(context,bean));
-        }
-        return results;
-    }
-
-    public TxtChapter bean;
-
-    public CategoryItem(Context context,TxtChapter bean) {
-        super(context);
-        this.bean = bean;
+    public CategoryItem(Context context, TxtChapter bean) {
+        super(context, bean);
     }
 
     @Override

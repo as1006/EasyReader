@@ -1,10 +1,14 @@
 package com.kroraina.easyreader.model.bean;
 
+import com.kroraina.easyreader.modules.rank.detail.BillBookItem;
+import com.xincubate.lego.annotation.LegoBean;
+
 /**
  * Created on 17-5-3.
  * 排行榜的书籍 (不被公用的直接作为内部类)
  */
 
+@LegoBean(clazz = BillBookItem.class)
 public class BillBookBean {
     /**
      * _id : 57206c3539a913ad65d35c7b

@@ -1,7 +1,9 @@
 package com.kroraina.easyreader.modules.community.comment;
 
 import com.kroraina.easyreader.modules.community.discuss.AuthorBean;
+import com.xincubate.lego.annotation.LegoBean;
 
+@LegoBean(clazz = BookCommentItem.class)
 public class BookCommentBean {
 
     public static class HelpFulBean{

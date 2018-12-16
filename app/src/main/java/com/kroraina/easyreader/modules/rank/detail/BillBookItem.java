@@ -10,6 +10,7 @@ import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.model.bean.BillBookBean;
 import com.kroraina.easyreader.modules.book.detail.BookDetailActivity;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.bean.BaseBeanItem;
 import com.xincubate.lego.adapter.core.BaseItem;
 import com.xincubate.lego.adapter.core.BaseViewHolder;
 import com.xincubate.lego.annotation.LegoItem;
@@ -18,21 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @LegoItem
-public class BillBookItem extends BaseItem {
+public class BillBookItem extends BaseBeanItem<BillBookBean> {
 
-    public static List<BillBookItem> initFrom(Context context, List<BillBookBean> beans){
-        List<BillBookItem> results = new ArrayList<>();
-        for (BillBookBean bean : beans){
-            results.add(new BillBookItem(context,bean));
-        }
-        return results;
-    }
 
-    public BillBookBean bean;
-
-    public BillBookItem(Context context,BillBookBean bean) {
-        super(context);
-        this.bean = bean;
+    public BillBookItem(Context context, BillBookBean bean) {
+        super(context, bean);
     }
 
     @Override

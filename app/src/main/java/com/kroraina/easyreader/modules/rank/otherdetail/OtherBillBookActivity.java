@@ -16,6 +16,7 @@ import com.kroraina.easyreader.modules.rank.detail.BillBookItem;
 import com.kroraina.easyreader.modules.rank.detail.BillBookPresenter;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.xincubate.lego.adapter.bean.BaseBeanAdapter;
 import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class OtherBillBookActivity extends BaseMVPActivity<BillBookContract.Pres
     @BindView(R.id.refresh_rv_content)
     RecyclerView mRvContent;
     /*******************/
-    private BaseAdapter mBillBookAdapter;
+    private BaseBeanAdapter mBillBookAdapter;
     /*****************/
     private String mBillId;
     private String mBillName;
@@ -90,13 +91,13 @@ public class OtherBillBookActivity extends BaseMVPActivity<BillBookContract.Pres
     private void setUpAdapter(){
         mRvContent.setLayoutManager(new LinearLayoutManager(this));
         mRvContent.addItemDecoration(new DividerItemDecoration(this));
-        mBillBookAdapter = new BaseAdapter(this);
+        mBillBookAdapter = new BaseBeanAdapter(this);
         mRvContent.setAdapter(mBillBookAdapter);
     }
 
     @Override
     public void finishRefresh(List<BillBookBean> beans) {
-        mBillBookAdapter.refreshItems(BillBookItem.initFrom(this,beans));
+        mBillBookAdapter.refreshBeans(beans);
     }
 
     @Override

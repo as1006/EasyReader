@@ -1,8 +1,11 @@
 package com.kroraina.easyreader.modules.category;
 
+import com.xincubate.lego.annotation.LegoBean;
+
 import java.util.List;
 
 
+@LegoBean(clazz = BookCategoryItem.class)
 public class BookSortBean {
     /**
      * name : 玄幻

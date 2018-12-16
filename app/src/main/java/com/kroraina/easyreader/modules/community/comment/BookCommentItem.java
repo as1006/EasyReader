@@ -13,6 +13,7 @@ import com.kroraina.easyreader.modules.main.community.CommunityType;
 import com.kroraina.easyreader.ui.widget.transform.CircleTransform;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.StringUtils;
+import com.xincubate.lego.adapter.bean.BaseBeanItem;
 import com.xincubate.lego.adapter.core.BaseItem;
 import com.xincubate.lego.adapter.core.BaseViewHolder;
 import com.xincubate.lego.annotation.LegoItem;
@@ -21,21 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @LegoItem
-public class BookCommentItem extends BaseItem {
+public class BookCommentItem extends BaseBeanItem<BookCommentBean> {
 
-    public static List<BookCommentItem> initFrom(Context context, List<BookCommentBean> beans){
-        List<BookCommentItem> results = new ArrayList<>();
-        for (BookCommentBean bean : beans){
-            results.add(new BookCommentItem(context,bean));
-        }
-        return results;
-    }
 
-    private BookCommentBean bean;
-
-    public BookCommentItem(Context context, BookCommentBean bean){
-        super(context);
-        this.bean = bean;
+    public BookCommentItem(Context context, BookCommentBean bean) {
+        super(context, bean);
     }
 
     @Override

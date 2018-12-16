@@ -15,14 +15,6 @@ import com.xincubate.lego.annotation.LegoItem;
 @LegoItem
 public class BookCategoryItem extends BaseBeanItem<BookSortBean> {
 
-//    public static List<BookCategoryItem> initFromBookSortBeans(Context context,List<BookSortBean> sortBeans){
-//        List<BookCategoryItem> results = new ArrayList<>();
-//        for (BookSortBean sortBean : sortBeans){
-//            results.add(new BookCategoryItem(context,sortBean));
-//        }
-//        return results;
-//    }
-
     public BookCategoryItem(Context context,BookSortBean bean){
         super(context,bean);
     }

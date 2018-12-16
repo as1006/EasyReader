@@ -1,23 +1,27 @@
 package com.kroraina.easyreader.ui.widget.page;
 
+import com.kroraina.easyreader.modules.book.read.CategoryItem;
+import com.xincubate.lego.annotation.LegoBean;
+
 /**
  * Created on 17-7-1.
  */
 
+@LegoBean(clazz = CategoryItem.class)
 public class TxtChapter{
 
     //章节所属的小说(网络)
-    String bookId;
+    private String bookId;
     //章节的链接(网络)
-    String link;
+    private String link;
 
     //章节名(共用)
-    String title;
+    private String title;
 
     //章节内容在文章中的起始位置(本地)
-    long start;
+    private long start;
     //章节内容在文章中的终止位置(本地)
-    long end;
+    private long end;
 
     public String getBookId() {
         return bookId;

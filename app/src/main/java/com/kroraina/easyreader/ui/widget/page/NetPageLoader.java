@@ -32,9 +32,9 @@ public class NetPageLoader extends PageLoader {
         List<TxtChapter> txtChapters = new ArrayList<>(bookChapters.size());
         for (BookChapterBean bean : bookChapters) {
             TxtChapter chapter = new TxtChapter();
-            chapter.bookId = bean.getBookId();
-            chapter.title = bean.getTitle();
-            chapter.link = bean.getLink();
+            chapter.setBookId(bean.getBookId());
+            chapter.setTitle(bean.getTitle());
+            chapter.setLink(bean.getLink());
             txtChapters.add(chapter);
         }
         return txtChapters;
@@ -63,7 +63,7 @@ public class NetPageLoader extends PageLoader {
     @Override
     protected BufferedReader getChapterReader(TxtChapter chapter) throws Exception {
         File file = new File(Constant.BOOK_CACHE_PATH + mCollBook.get_id()
-                + File.separator + chapter.title + FileUtils.SUFFIX_NB);
+                + File.separator + chapter.getTitle() + FileUtils.SUFFIX_NB);
         if (!file.exists()) return null;
 
         Reader reader = new FileReader(file);
@@ -73,7 +73,7 @@ public class NetPageLoader extends PageLoader {
 
     @Override
     protected boolean hasChapterData(TxtChapter chapter) {
-        return BookManager.isChapterCached(mCollBook.get_id(), chapter.title);
+        return BookManager.isChapterCached(mCollBook.get_id(), chapter.getTitle());
     }
 
     // 装载上一章节的内容
