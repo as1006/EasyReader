@@ -377,7 +377,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
 
                     @Override
                     public void requestChapters(List<TxtChapter> requestChapters) {
-                        mPresenter.loadChapter(mBookId, requestChapters);
+                        getMPresenter().loadChapter(mBookId, requestChapters);
                         mHandler.sendEmptyMessage(WHAT_CATEGORY);
                         //隐藏提示
                         mTvPageTip.setVisibility(GONE);
@@ -618,7 +618,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
                                 mPageLoader.refreshChapterList();
                                 // 如果是网络小说并被标记更新的，则从网络下载目录
                                 if (mCollBook.isUpdate()) {
-                                    mPresenter.loadCategory(mBookId);
+                                    getMPresenter().loadCategory(mBookId);
                                 }
                                 LogUtils.e(throwable);
                             }
@@ -626,7 +626,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
             addDisposable(disposable);
         } else {
             // 从网络中获取目录
-            mPresenter.loadCategory(mBookId);
+            getMPresenter().loadCategory(mBookId);
         }
     }
 

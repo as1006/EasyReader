@@ -101,7 +101,7 @@ public class BookListDetailActivity extends BaseMVPActivity<BookListDetailContra
     protected void processLogic() {
         super.processLogic();
         mRefreshLayout.showLoading();
-        mPresenter.refreshBookListDetail(mDetailId);
+        getMPresenter().refreshBookListDetail(mDetailId);
     }
 
     @Override

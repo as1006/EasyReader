@@ -9,6 +9,7 @@ import com.kroraina.easyreader.modules.main.community.CommunityFragment
 import com.kroraina.easyreader.modules.main.discover.DiscoverFragment
 import com.kroraina.easyreader.modules.main.shelf.BookShelfFragment
 import com.kroraina.easyreader.modules.main.store.BookStoreFragment
+import kotlinx.android.synthetic.main.activity_base_tab.*
 
 import java.util.ArrayList
 import java.util.Arrays
@@ -32,7 +33,7 @@ class MainActivity : BaseTabActivity() {
 
     override fun onBackPressed() {
         if (!isPrepareFinish) {
-            mVp.postDelayed(
+            tab_vp.postDelayed(
                     { isPrepareFinish = false }, EXIT_WAIT_INTERVAL.toLong()
             )
             isPrepareFinish = true
