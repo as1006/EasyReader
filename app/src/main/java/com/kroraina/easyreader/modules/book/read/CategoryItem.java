@@ -6,18 +6,18 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.ui.widget.page.TxtChapter;
 import com.kroraina.easyreader.utils.BookManager;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-@LayoutId(R.layout.item_category)
+@LegoItem
 public class CategoryItem extends BaseItem {
 
     public static List<CategoryItem> initFrom(Context context, List<TxtChapter> beans){
@@ -35,6 +35,11 @@ public class CategoryItem extends BaseItem {
         this.bean = bean;
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.item_category;
+    }
+
     public void setSelectedChapter(@NonNull BaseViewHolder viewHolder){
         TextView mTvChapter = viewHolder.findViewById(R.id.category_tv_chapter);
         mTvChapter.setTextColor(ContextCompat.getColor(context,R.color.light_red));
@@ -42,7 +47,7 @@ public class CategoryItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         TextView mTvChapter = viewHolder.findViewById(R.id.category_tv_chapter);
 
         Drawable drawable = null;

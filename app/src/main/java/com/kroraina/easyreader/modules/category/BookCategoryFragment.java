@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.easyapp.lego.adapter.bean.BaseBeanAdapter;
-import com.easyapp.lego.adapter.bean.BaseBeanItem;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.fragment.BaseFragment;
 import com.kroraina.easyreader.model.bean.BookSubSortBean;
@@ -15,6 +13,8 @@ import com.kroraina.easyreader.modules.category.detail.BookSortListActivity;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerGridItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 import com.kroraina.easyreader.utils.LogUtils;
+import com.xincubate.lego.adapter.bean.BaseBeanAdapter;
+import com.xincubate.lego.layoutcenter.LayoutCenter;
 
 import butterknife.BindView;
 import io.reactivex.Single;
@@ -61,9 +61,8 @@ public class BookCategoryFragment extends BaseFragment implements BookSortContra
     }
 
     private void setUpAdapter(){
-        mBookAdapter = new BaseBeanAdapter()
-                .registerItemBuilder(BookSortBean.class, (BaseBeanItem.ItemBuilder<BookCategoryItem, BookSortBean>) bean -> new BookCategoryItem(getContext(),bean));
-
+        mBookAdapter = new BaseBeanAdapter(getActivity());
+        LayoutCenter.getInstance().registerItemBuilder(BookSortBean.class, BookCategoryItem::new);
 
         RecyclerView.ItemDecoration itemDecoration = new DividerGridItemDecoration(getContext(),R.drawable.shape_divider_row,R.drawable.shape_divider_col);
         mRvBoy.setLayoutManager(new GridLayoutManager(getContext(),SPAN_COUNT));
@@ -134,9 +133,9 @@ public class BookCategoryFragment extends BaseFragment implements BookSortContra
         }
         else {
             if (mIsMale){
-                mBookAdapter.refresh(sortPackage.getMale());
+                mBookAdapter.refreshBeans(sortPackage.getMale());
             }else {
-                mBookAdapter.refresh(sortPackage.getFemale());
+                mBookAdapter.refreshBeans(sortPackage.getFemale());
             }
         }
         mSubSortPackage = subSortPackage;

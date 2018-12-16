@@ -8,17 +8,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.model.bean.BookListBean;
 import com.kroraina.easyreader.modules.sheetlist.detail.BookListDetailActivity;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.List;
 
-@LayoutId(R.layout.item_recommend_vertical)
+@LegoItem
 public class RecommendVerticalItem extends BaseItem {
 
     public List<BookListBean> mRecommendBooks;
@@ -29,7 +29,12 @@ public class RecommendVerticalItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public int getLayoutId() {
+        return R.layout.item_recommend_vertical;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         fillBookView(mRecommendBooks.get(0),viewHolder.findViewById(R.id.layout_recommend_book_1));
         fillBookView(mRecommendBooks.get(1),viewHolder.findViewById(R.id.layout_recommend_book_2));
         fillBookView(mRecommendBooks.get(2),viewHolder.findViewById(R.id.layout_recommend_book_3));

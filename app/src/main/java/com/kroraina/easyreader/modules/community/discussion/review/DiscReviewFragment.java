@@ -3,7 +3,6 @@ package com.kroraina.easyreader.modules.community.discussion.review;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
@@ -15,6 +14,7 @@ import com.kroraina.easyreader.model.flag.BookType;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.load.LoadMoreAdapter;
 
 import java.util.List;
 
@@ -66,7 +66,7 @@ public class DiscReviewFragment extends BaseMVPFragment<DiscReviewContract.Prese
     private void setUpAdapter() {
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));
-        mDiscReviewAdapter = new LoadMoreAdapter();
+        mDiscReviewAdapter = new LoadMoreAdapter(getActivity());
         mRvContent.setAdapter(mDiscReviewAdapter);
     }
 

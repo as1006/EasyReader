@@ -5,15 +5,15 @@ import android.support.annotation.NonNull;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.modules.community.discussion.help.HelpDiscussionActivity;
 import com.kroraina.easyreader.modules.community.discussion.review.BookReviewActivity;
 import com.kroraina.easyreader.modules.community.discussion.topic.TopicDiscussionActivity;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
-@LayoutId(R.layout.item_community_head_entry)
+@LegoItem
 public class CommunityHeaderEntryItem extends BaseItem {
 
     public int drawableResId;
@@ -28,6 +28,11 @@ public class CommunityHeaderEntryItem extends BaseItem {
     }
 
     @Override
+    public int getLayoutId() {
+        return R.layout.item_community_head_entry;
+    }
+
+    @Override
     public void onClick() {
         if (communityType == CommunityType.HELP){
             startActivity(HelpDiscussionActivity.class);
@@ -39,7 +44,7 @@ public class CommunityHeaderEntryItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         ImageView iconView = viewHolder.findViewById(R.id.iv_community_head_icon);
         TextView nameView = viewHolder.findViewById(R.id.tv_community_head_name);
         iconView.setImageResource(this.drawableResId);

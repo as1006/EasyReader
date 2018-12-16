@@ -12,10 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
-import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
 import com.kroraina.easyreader.base.annotations.ActivityUI;
@@ -23,6 +19,10 @@ import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 import com.kroraina.easyreader.ui.widget.transform.CircleTransform;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.adapter.load.LoadMoreAdapter;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +80,7 @@ public class BookListDetailActivity extends BaseMVPActivity<BookListDetailContra
     }
 
     private void setUpAdapter(){
-        mDetailAdapter = new LoadMoreAdapter();
+        mDetailAdapter = new LoadMoreAdapter(this);
         mDetailHeader = new DetailHeaderItem(this);
         mDetailAdapter.addHeaderItem(mDetailHeader);
 
@@ -154,8 +154,8 @@ public class BookListDetailActivity extends BaseMVPActivity<BookListDetailContra
     }
 
 
-    @LayoutId(R.layout.header_book_list_detail)
-    class DetailHeaderItem extends BaseItem{
+    @LegoItem
+    public static class DetailHeaderItem extends BaseItem {
 
         private BookListDetailBean detailBean;
 
@@ -163,9 +163,13 @@ public class BookListDetailActivity extends BaseMVPActivity<BookListDetailContra
             super(context);
         }
 
+        @Override
+        public int getLayoutId() {
+            return R.layout.header_book_list_detail;
+        }
 
         @Override
-        public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+        public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
             TextView tvTitle = viewHolder.findViewById(R.id.book_list_info_tv_title);
             TextView tvDesc = viewHolder.findViewById(R.id.book_list_detail_tv_desc);
             ImageView ivPortrait = viewHolder.findViewById(R.id.book_list_info_iv_cover);
@@ -181,11 +185,11 @@ public class BookListDetailActivity extends BaseMVPActivity<BookListDetailContra
             //描述
             tvDesc.setText(detailBean.getDesc());
             //头像
-            Glide.with(getApplicationContext())
+            Glide.with(context)
                     .load(Constant.IMG_BASE_URL+detailBean.getAuthor().getAvatar())
                     .placeholder(R.drawable.ic_loadding)
                     .error(R.drawable.ic_load_error)
-                    .transform(new CircleTransform(getApplicationContext()))
+                    .transform(new CircleTransform(context))
                     .into(ivPortrait);
             //作者
             tvAuthor.setText(detailBean.getAuthor().getNickname());

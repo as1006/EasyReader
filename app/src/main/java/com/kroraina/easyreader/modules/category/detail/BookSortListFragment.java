@@ -5,13 +5,13 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.event.BookSubSortEvent;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.xincubate.lego.adapter.load.LoadMoreAdapter;
 
 import java.util.List;
 
@@ -107,7 +107,7 @@ public class BookSortListFragment extends BaseMVPFragment<BookSortListContract.P
     }
 
     private void setUpAdapter(){
-        mBookSortListAdapter = new LoadMoreAdapter();
+        mBookSortListAdapter = new LoadMoreAdapter(getActivity());
 
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));

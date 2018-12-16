@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
@@ -16,6 +15,7 @@ import com.kroraina.easyreader.modules.main.community.CommunityType;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.load.LoadMoreAdapter;
 
 import java.util.List;
 
@@ -85,7 +85,7 @@ public class DiscCommentFragment extends BaseMVPFragment<DiscCommentContact.Pres
     private void setUpAdapter() {
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));
-        mDiscCommentAdapter = new LoadMoreAdapter();
+        mDiscCommentAdapter = new LoadMoreAdapter(getActivity());
         mRvContent.setAdapter(mDiscCommentAdapter);
     }
 

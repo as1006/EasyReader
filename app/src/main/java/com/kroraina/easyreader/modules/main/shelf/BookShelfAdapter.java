@@ -1,13 +1,19 @@
 package com.kroraina.easyreader.modules.main.shelf;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
-import com.easyapp.lego.adapter.core.BaseItem;
+import android.content.Context;
+
 import com.kroraina.easyreader.model.entity.CollBookBean;
+import com.xincubate.lego.adapter.core.BaseAdapter;
+import com.xincubate.lego.adapter.core.BaseItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookShelfAdapter extends BaseAdapter {
+
+    public BookShelfAdapter(Context context) {
+        super(context);
+    }
 
     public List<CollBookBean> getBooks(){
 

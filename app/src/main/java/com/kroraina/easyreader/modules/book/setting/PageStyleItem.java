@@ -6,17 +6,17 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-@LayoutId(R.layout.item_read_bg)
+@LegoItem
 public class PageStyleItem extends BaseItem {
 
     public static List<PageStyleItem> initFrom(Context context, List<Drawable> drawables){
@@ -34,13 +34,18 @@ public class PageStyleItem extends BaseItem {
         this.drawable = drawable;
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.item_read_bg;
+    }
+
     public void setChecked(@NonNull BaseViewHolder viewHolder){
         ImageView mIvChecked = viewHolder.findViewById(R.id.read_bg_iv_checked);
         mIvChecked.setVisibility(View.VISIBLE);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         View mReadBg = viewHolder.findViewById(R.id.read_bg_view);
         ImageView mIvChecked = viewHolder.findViewById(R.id.read_bg_iv_checked);
 

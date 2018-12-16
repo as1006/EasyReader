@@ -12,11 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseAdapter;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
-import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.annotations.FragmentUI;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
@@ -29,6 +24,11 @@ import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 import com.kroraina.easyreader.ui.widget.transform.CircleTransform;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.StringUtils;
+import com.xincubate.lego.adapter.core.BaseAdapter;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.adapter.load.LoadMoreAdapter;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.List;
 
@@ -86,7 +86,7 @@ public class CommentDetailFragment extends BaseMVPFragment<CommentDetailContract
 
     private void initRecyclerView(){
 
-        mCommentAdapter = new LoadMoreAdapter();
+        mCommentAdapter = new LoadMoreAdapter(getActivity());
         mDetailHeader = new DetailHeaderItem(getContext());
         mCommentAdapter.addHeaderItem(mDetailHeader);
 
@@ -151,8 +151,8 @@ public class CommentDetailFragment extends BaseMVPFragment<CommentDetailContract
         outState.putString(EXTRA_DETAIL_ID, mDetailId);
     }
 
-    @LayoutId(R.layout.header_disc_detail)
-    class DetailHeaderItem extends BaseItem{
+    @LegoItem
+    public static class DetailHeaderItem extends BaseItem {
 
         BaseAdapter godCommentAdapter;
         CommentDetailBean commentDetailBean;
@@ -163,7 +163,12 @@ public class CommentDetailFragment extends BaseMVPFragment<CommentDetailContract
         }
 
         @Override
-        public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+        public int getLayoutId() {
+            return R.layout.header_disc_detail;
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
             ImageView ivPortrait = viewHolder.findViewById(R.id.disc_detail_iv_portrait);
             TextView tvName = viewHolder.findViewById(R.id.disc_detail_tv_name);
             TextView tvTime = viewHolder.findViewById(R.id.disc_detail_tv_time);
@@ -177,11 +182,11 @@ public class CommentDetailFragment extends BaseMVPFragment<CommentDetailContract
                 return;
             }
             //头像
-            Glide.with(getContext())
+            Glide.with(context)
                     .load(Constant.IMG_BASE_URL+commentDetailBean.getAuthor().getAvatar())
                     .placeholder(R.drawable.ic_loadding)
                     .error(R.drawable.ic_load_error)
-                    .transform(new CircleTransform(getContext()))
+                    .transform(new CircleTransform(context))
                     .into(ivPortrait);
             //名字
             tvName.setText(commentDetailBean.getAuthor().getNickname());
@@ -207,25 +212,25 @@ public class CommentDetailFragment extends BaseMVPFragment<CommentDetailContract
                 rvBestComments.setVisibility(View.VISIBLE);
                 //初始化RecyclerView
                 if (godCommentAdapter == null) {
-                    godCommentAdapter = new BaseAdapter();
-                    rvBestComments.setLayoutManager(new LinearLayoutManager(getContext()));
-                    rvBestComments.addItemDecoration(new DividerItemDecoration(getContext()));
+                    godCommentAdapter = new BaseAdapter(context);
+                    rvBestComments.setLayoutManager(new LinearLayoutManager(context));
+                    rvBestComments.addItemDecoration(new DividerItemDecoration(context));
                     rvBestComments.setAdapter(godCommentAdapter);
                 }
 
-                godCommentAdapter.refreshItems(CommentItem.initFrom(getContext(),godCommentList,true));
+                godCommentAdapter.refreshItems(CommentItem.initFrom(context,godCommentList,true));
             }
-
-            if (mCommentAdapter.getItems().isEmpty()){
-                tvCommentCount.setText(getResources().getString(R.string.nb_comment_empty_comment));
-            }
-            else {
-                CommentItem commentItem = (CommentItem) mCommentAdapter.getItems().get(0);
-                CommentBean firstComment = commentItem.bean;
-                //评论数
-                tvCommentCount.setText(getResources()
-                        .getString(R.string.nb_comment_comment_count,firstComment.getFloor()));
-            }
+//暂时注释
+//            if (mCommentAdapter.getItems().isEmpty()){
+//                tvCommentCount.setText(context.getResources().getString(R.string.nb_comment_empty_comment));
+//            }
+//            else {
+//                CommentItem commentItem = (CommentItem) mCommentAdapter.getItems().get(0);
+//                CommentBean firstComment = commentItem.bean;
+//                //评论数
+//                tvCommentCount.setText(context.getResources()
+//                        .getString(R.string.nb_comment_comment_count,firstComment.getFloor()));
+//            }
         }
 
         public void setCommentDetail(CommentDetailBean bean){

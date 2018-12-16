@@ -2,9 +2,9 @@ package com.kroraina.easyreader.modules.local;
 
 import android.content.Context;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
-import com.easyapp.lego.adapter.core.BaseItem;
 import com.kroraina.easyreader.model.local.BookRepository;
+import com.xincubate.lego.adapter.core.BaseAdapter;
+import com.xincubate.lego.adapter.core.BaseItem;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,10 +20,8 @@ public class FileSystemAdapter extends BaseAdapter {
     private HashMap<File,Boolean> mCheckMap = new HashMap<>();
     private int mCheckedCount = 0;
 
-    private Context context;
-
-    public FileSystemAdapter(Context context){
-        this.context = context;
+    public FileSystemAdapter(Context context) {
+        super(context);
     }
 
     public List<File> getBeans(){
@@ -42,19 +40,19 @@ public class FileSystemAdapter extends BaseAdapter {
         mCheckMap.clear();
         for(File file : list){
             mCheckMap.put(file, false);
-            items.add(new FileItem(context,mCheckMap,file));
+            items.add(new FileItem(mContext,mCheckMap,file));
         }
         super.refreshItems(items);
     }
 
     public void addBean(File value) {
         mCheckMap.put(value, false);
-        super.addItem(new FileItem(context,mCheckMap,value));
+        super.addItem(new FileItem(mContext,mCheckMap,value));
     }
 
     public void addBean(int index, File value) {
         mCheckMap.put(value, false);
-        super.addItem(index, new FileItem(context,mCheckMap,value));
+        super.addItem(index, new FileItem(mContext,mCheckMap,value));
     }
 
     public void addBeans(List<File> values) {
@@ -63,7 +61,7 @@ public class FileSystemAdapter extends BaseAdapter {
 
         for(File file : values){
             mCheckMap.put(file, false);
-            items.add(new FileItem(context,mCheckMap,file));
+            items.add(new FileItem(mContext,mCheckMap,file));
         }
         super.addItems(items);
     }

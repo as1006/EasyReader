@@ -5,25 +5,30 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseAdapter;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
+import com.xincubate.lego.adapter.core.BaseAdapter;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
-@LayoutId(R.layout.item_community_head)
+@LegoItem
 public class CommunityHeaderItem extends BaseItem {
     public CommunityHeaderItem(Context context) {
         super(context);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public int getLayoutId() {
+        return R.layout.item_community_head;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         RecyclerView recyclerView = viewHolder.findViewById(R.id.rv_content);
         GridLayoutManager manager = new GridLayoutManager(recyclerView.getContext(),4);
         recyclerView.setLayoutManager(manager);
 
-        BaseAdapter baseAdapter = new BaseAdapter();
+        BaseAdapter baseAdapter = new BaseAdapter(context);
 
         baseAdapter.addItem(new CommunityHeaderEntryItem(context,R.drawable.community_head_history,"大话历史",CommunityType.HISTORY));
         baseAdapter.addItem(new CommunityHeaderEntryItem(context,R.drawable.community_head_girl,"女生密语",CommunityType.GIRL));

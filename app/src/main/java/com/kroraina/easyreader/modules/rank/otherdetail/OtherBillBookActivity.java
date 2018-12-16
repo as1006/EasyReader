@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
 import com.kroraina.easyreader.model.bean.BillBookBean;
@@ -17,6 +16,7 @@ import com.kroraina.easyreader.modules.rank.detail.BillBookItem;
 import com.kroraina.easyreader.modules.rank.detail.BillBookPresenter;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
 
@@ -90,7 +90,7 @@ public class OtherBillBookActivity extends BaseMVPActivity<BillBookContract.Pres
     private void setUpAdapter(){
         mRvContent.setLayoutManager(new LinearLayoutManager(this));
         mRvContent.addItemDecoration(new DividerItemDecoration(this));
-        mBillBookAdapter = new BaseAdapter();
+        mBillBookAdapter = new BaseAdapter(this);
         mRvContent.setAdapter(mBillBookAdapter);
     }
 

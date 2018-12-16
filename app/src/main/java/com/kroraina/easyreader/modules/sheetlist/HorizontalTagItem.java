@@ -4,14 +4,14 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
 import com.kroraina.easyreader.event.BookSubSortEvent;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
-@LayoutId(R.layout.item_horizon_tag)
+@LegoItem
 public class HorizontalTagItem extends BaseItem {
 
     public String name;
@@ -19,6 +19,11 @@ public class HorizontalTagItem extends BaseItem {
     public HorizontalTagItem(Context context,String name) {
         super(context);
         this.name = name;
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.item_horizon_tag;
     }
 
     @Override
@@ -32,7 +37,7 @@ public class HorizontalTagItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         TextView mTvName = viewHolder.findViewById(R.id.horizon_tag_tv_name);
         mTvName.setText(name);
         mTvName.setTextColor(context.getResources().getColor(R.color.nb_text_common_h2));

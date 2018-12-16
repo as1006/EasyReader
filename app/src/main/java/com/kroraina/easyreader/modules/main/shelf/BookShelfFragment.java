@@ -72,7 +72,7 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
 
     private void setUpAdapter() {
         //添加Footer
-        mCollBookAdapter = new BookShelfAdapter();
+        mCollBookAdapter = new BookShelfAdapter(getActivity());
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));
         mRvContent.setAdapter(mCollBookAdapter);

@@ -5,13 +5,13 @@ import android.support.annotation.NonNull;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.modules.community.discussion.help.HelpDiscussionActivity;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
-@LayoutId(R.layout.item_section)
+@LegoItem
 public class DiscoverSectionItem extends BaseItem {
 
     private DiscoverType findType;
@@ -22,7 +22,12 @@ public class DiscoverSectionItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public int getLayoutId() {
+        return R.layout.item_section;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder,int position) {
         ImageView mIconView = viewHolder.findViewById(R.id.section_iv_icon);
         TextView mNameView = viewHolder.findViewById(R.id.section_tv_name);
 

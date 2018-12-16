@@ -92,7 +92,7 @@ public class BookSortListActivity extends BaseTabActivity {
     }
 
     private void setUpAdapter(){
-        mTagAdapter = new HorizontalTagAdapter();
+        mTagAdapter = new HorizontalTagAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mRvTag.setLayoutManager(linearLayoutManager);

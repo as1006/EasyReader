@@ -327,7 +327,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
 
     private void setUpAdapter() {
         mLvCategory.setLayoutManager(new LinearLayoutManager(this));
-        mCategoryAdapter = new CategoryAdapter();
+        mCategoryAdapter = new CategoryAdapter(this);
         mLvCategory.setAdapter(mCategoryAdapter);
     }
 

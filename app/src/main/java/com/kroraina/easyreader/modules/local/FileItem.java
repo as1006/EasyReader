@@ -8,21 +8,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.model.local.BookRepository;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.FileUtils;
 import com.kroraina.easyreader.utils.MD5Utils;
 import com.kroraina.easyreader.utils.StringUtils;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.io.File;
 import java.util.HashMap;
 
 
-@LayoutId(R.layout.item_file)
+@LegoItem
 public class FileItem extends BaseItem {
 
     private HashMap<File,Boolean> mSelectedMap;
@@ -34,7 +34,12 @@ public class FileItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public int getLayoutId() {
+        return R.layout.item_file;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder ,int position) {
         ImageView mIvIcon = viewHolder.findViewById(R.id.file_iv_icon);
         CheckBox mCbSelect = viewHolder.findViewById(R.id.file_cb_select);
         TextView mTvName = viewHolder.findViewById(R.id.file_tv_name);

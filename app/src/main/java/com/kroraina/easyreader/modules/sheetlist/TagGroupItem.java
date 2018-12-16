@@ -4,15 +4,15 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
-import com.easyapp.lego.adapter.group.BaseGroupItem;
 import com.kroraina.easyreader.R;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.adapter.group.BaseGroupItem;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.List;
 
 
-@LayoutId(R.layout.item_tag_group)
+@LegoItem
 public class TagGroupItem extends BaseGroupItem {
 
     public String bean;
@@ -23,12 +23,12 @@ public class TagGroupItem extends BaseGroupItem {
     }
 
     @Override
-    public int getItemViewType() {
-        return 4000;
+    public int getLayoutId() {
+        return R.layout.item_tag_group;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         TextView mTvGroupName = viewHolder.findViewById(R.id.tag_group_name);
         mTvGroupName.setText(bean);
     }

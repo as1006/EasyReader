@@ -6,13 +6,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.bean.BaseBeanItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.bean.BaseBeanItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
-@LayoutId(R.layout.item_sort)
+@LegoItem
 public class BookCategoryItem extends BaseBeanItem<BookSortBean> {
 
 //    public static List<BookCategoryItem> initFromBookSortBeans(Context context,List<BookSortBean> sortBeans){
@@ -28,7 +28,12 @@ public class BookCategoryItem extends BaseBeanItem<BookSortBean> {
     }
 
     @Override
-    public void onBindViewWithBean(@NonNull BaseViewHolder viewHolder, BookSortBean bean) {
+    public int getLayoutId() {
+        return R.layout.item_sort;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder, int position) {
         TextView typeView = viewHolder.findViewById(R.id.sort_tv_type);
         ImageView coverView = viewHolder.findViewById(R.id.iv_cover);
         TextView countView = viewHolder.findViewById(R.id.sort_tv_count);

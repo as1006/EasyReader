@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseActivity;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
@@ -26,6 +25,7 @@ import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
 import com.kroraina.easyreader.utils.PermissionsChecker;
 import com.kroraina.easyreader.utils.ToastUtils;
+import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
 
@@ -73,7 +73,7 @@ public class BookStoreFragment extends BaseMVPFragment<BookStoreContract.Present
 
     private void setUpAdapter() {
         //添加Footer
-        mCollBookAdapter = new BaseAdapter();
+        mCollBookAdapter = new BaseAdapter(getActivity());
         mCollBookAdapter.addItem(new SearchBarItem(getContext()));
 
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));

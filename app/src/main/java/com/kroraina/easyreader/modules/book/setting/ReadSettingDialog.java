@@ -145,7 +145,7 @@ public class ReadSettingDialog extends Dialog {
                 , getDrawable(R.color.nb_read_bg_4)
                 , getDrawable(R.color.nb_read_bg_5)};
 
-        mPageStyleAdapter = new PageStyleAdapter();
+        mPageStyleAdapter = new PageStyleAdapter(getContext());
         mRvBg.setLayoutManager(new GridLayoutManager(getContext(), 5));
         mRvBg.setAdapter(mPageStyleAdapter);
         mPageStyleAdapter.refreshItems(PageStyleItem.initFrom(getContext(),Arrays.asList(drawables)));

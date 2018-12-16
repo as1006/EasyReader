@@ -1,1 +1,1 @@
-include ':app', ':legoadapter'
+include ':app', ':lego', ':lego-annotations', ':lego-compiler'

@@ -7,20 +7,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.model.bean.CommentBean;
 import com.kroraina.easyreader.model.bean.ReplyToBean;
 import com.kroraina.easyreader.ui.widget.transform.CircleTransform;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.StringUtils;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@LayoutId(R.layout.item_comment)
+@LegoItem
 public class CommentItem extends BaseItem {
 
 
@@ -42,7 +42,12 @@ public class CommentItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public int getLayoutId() {
+        return R.layout.item_comment;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
 
         ImageView ivPortrait = viewHolder.findViewById(R.id.comment_iv_portrait);
         TextView tvFloor = viewHolder.findViewById(R.id.comment_tv_floor);

@@ -3,13 +3,13 @@ package com.kroraina.easyreader.modules.community.comment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.annotations.FragmentUI;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.model.flag.BookSort;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
+import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class BookCommentFragment extends BaseMVPFragment<BookCommentContact.Pres
     private void setUpAdapter() {
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));
-        mDiscCommentAdapter = new BaseAdapter();
+        mDiscCommentAdapter = new BaseAdapter(getActivity());
         mRvContent.setAdapter(mDiscCommentAdapter);
     }
 

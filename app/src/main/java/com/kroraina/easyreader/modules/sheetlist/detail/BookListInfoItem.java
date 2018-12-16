@@ -6,17 +6,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.modules.book.detail.BookDetailActivity;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@LayoutId(R.layout.item_book_list_info)
+@LegoItem
 public class BookListInfoItem extends BaseItem {
 
     public static List<BookListInfoItem> initFrom(Context context, List<BookListDetailBean.BooksBean.BookBean> beans){
@@ -35,12 +35,17 @@ public class BookListInfoItem extends BaseItem {
     }
 
     @Override
+    public int getLayoutId() {
+        return R.layout.item_book_list_info;
+    }
+
+    @Override
     public void onClick() {
         BookDetailActivity.startActivity(context, bean.get_id());
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         ImageView mIvPortrait = viewHolder.findViewById(R.id.book_list_info_iv_cover);
         TextView mTvTitle = viewHolder.findViewById(R.id.book_list_info_tv_title);
         TextView mTvAuthor = viewHolder.findViewById(R.id.book_list_info_tv_author);

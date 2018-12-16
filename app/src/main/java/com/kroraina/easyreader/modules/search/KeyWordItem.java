@@ -4,15 +4,15 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@LayoutId(R.layout.item_keyword)
+@LegoItem
 public class KeyWordItem extends BaseItem {
 
     public static List<KeyWordItem> initForStringArray(Context context,List<String> keywords){
@@ -31,7 +31,12 @@ public class KeyWordItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public int getLayoutId() {
+        return R.layout.item_keyword;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder,int position) {
         TextView mKeywordView = viewHolder.findViewById(R.id.tv_keyword);
         mKeywordView.setText(keyword);
     }

@@ -8,19 +8,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.model.entity.CollBookBean;
 import com.kroraina.easyreader.modules.book.read.ReadActivity;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.StringUtils;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@LayoutId(R.layout.item_coll_book)
+@LegoItem
 public class BookShelfItem extends BaseItem {
 
     public static List<BookShelfItem> initFrom(Context context,List<CollBookBean> bookBeans){
@@ -29,6 +29,11 @@ public class BookShelfItem extends BaseItem {
             results.add(new BookShelfItem(context,bookBean));
         }
         return results;
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.item_coll_book;
     }
 
     public CollBookBean bean;
@@ -43,7 +48,7 @@ public class BookShelfItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         ImageView mIvCover = viewHolder.findViewById(R.id.coll_book_iv_cover);
         TextView mTvName = viewHolder.findViewById(R.id.coll_book_tv_name);
         TextView mTvChapter = viewHolder.findViewById(R.id.coll_book_tv_chapter);

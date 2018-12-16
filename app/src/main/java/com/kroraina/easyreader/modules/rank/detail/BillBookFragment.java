@@ -5,12 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
 import com.kroraina.easyreader.model.bean.BillBookBean;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
 
@@ -70,7 +70,7 @@ public class BillBookFragment extends BaseMVPFragment<BillBookContract.Presenter
     private void setUpAdapter(){
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));
-        mBillBookAdapter = new BaseAdapter();
+        mBillBookAdapter = new BaseAdapter(getActivity());
         mRvContent.setAdapter(mBillBookAdapter);
     }
 

@@ -7,20 +7,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.model.bean.BookHelpsBean;
 import com.kroraina.easyreader.modules.community.detail.DiscDetailActivity;
 import com.kroraina.easyreader.modules.main.community.CommunityType;
 import com.kroraina.easyreader.ui.widget.transform.CircleTransform;
 import com.kroraina.easyreader.utils.Constant;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@LayoutId(R.layout.item_disc_comment)
+@LegoItem
 public class DiscHelpsItem extends BaseItem {
 
     public static List<DiscHelpsItem> initFrom(Context context, List<BookHelpsBean> beans){
@@ -40,12 +40,17 @@ public class DiscHelpsItem extends BaseItem {
     }
 
     @Override
+    public int getLayoutId() {
+        return R.layout.item_disc_comment;
+    }
+
+    @Override
     public void onClick() {
         DiscDetailActivity.startActivity(context, CommunityType.HELP,bean.get_id());
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder,int position) {
         ImageView mIvPortrait = viewHolder.findViewById(R.id.disc_comment_iv_portrait);
         TextView mTvName = viewHolder.findViewById(R.id.disc_comment_tv_name);
         TextView mTvLv = viewHolder.findViewById(R.id.disc_comment_tv_lv);

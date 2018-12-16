@@ -1,6 +1,7 @@
 package com.kroraina.easyreader.modules.sheetlist;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -76,13 +77,21 @@ public class BookSheetListActivity extends BaseTabActivity {
 
     private void initTag(){
         //横向的
-        mHorizonTagAdapter = new HorizontalTagAdapter();
+        mHorizonTagAdapter = new HorizontalTagAdapter(this);
         LinearLayoutManager tagManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         mRvTag.setLayoutManager(tagManager);
         mRvTag.setAdapter(mHorizonTagAdapter);
 
+        mTagGroupAdapter = new TagGroupAdapter(this);
+
         //筛选框
-        mTagGroupAdapter = new TagGroupAdapter(mRvFilter,4);
+        int spanCount = 4;
+        GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
+        layoutManager.setSpanSizeLookup(mTagGroupAdapter.new GroupSpanSizeLookup(spanCount));
+        mRvFilter.setLayoutManager(layoutManager);
+
+
+
         mRvFilter.setAdapter(mTagGroupAdapter);
     }
 

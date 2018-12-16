@@ -3,9 +3,9 @@ package com.kroraina.easyreader.modules.sheetlist;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.adapter.core.BaseAdapter;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,8 @@ public class HorizontalTagAdapter extends BaseAdapter {
     private int currentSelected = 0;
 
 
-    public HorizontalTagAdapter(){
+    public HorizontalTagAdapter(Context context){
+        super(context);
         setOnItemClickListener((item, position) -> {
             selectTag(position);
             return false;

@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.easyapp.lego.adapter.load.LoadMoreAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
@@ -13,6 +12,7 @@ import com.kroraina.easyreader.event.BookSubSortEvent;
 import com.kroraina.easyreader.model.bean.BookListBean;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.xincubate.lego.adapter.load.LoadMoreAdapter;
 
 import java.util.List;
 
@@ -114,7 +114,7 @@ public class BookSheetListFragment extends BaseMVPFragment<BookListContract.Pres
     private void setUpAdapter(){
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));
-        mBookListAdapter = new LoadMoreAdapter();
+        mBookListAdapter = new LoadMoreAdapter(getActivity());
         mRvContent.setAdapter(mBookListAdapter);
     }
 

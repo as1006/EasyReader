@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
 import com.kroraina.easyreader.base.annotations.ActivityUI;
@@ -21,6 +20,7 @@ import com.kroraina.easyreader.model.entity.SearchHistoryBean;
 import com.kroraina.easyreader.model.local.BookRepository;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
+import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
 
@@ -74,9 +74,9 @@ public class SearchActivity extends BaseMVPActivity<SearchContract.Presenter> im
     }
 
     private void setUpAdapter(){
-        mKeyWordAdapter = new BaseAdapter();
-        mSearchAdapter = new BaseAdapter();
-        mHistoryAdapter = new BaseAdapter();
+        mKeyWordAdapter = new BaseAdapter(this);
+        mSearchAdapter = new BaseAdapter(this);
+        mHistoryAdapter = new BaseAdapter(this);
 
         mRvSearch.setLayoutManager(new LinearLayoutManager(this));
         mRvSearch.addItemDecoration(new DividerItemDecoration(this));

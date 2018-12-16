@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.easyapp.lego.adapter.core.BaseAdapter;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.annotations.NavigationBar;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
+import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import butterknife.BindView;
 
@@ -48,7 +48,7 @@ public class BaseListFragment extends BaseFragment {
     }
 
     private void setUpAdapter(){
-        mAdapter = new BaseAdapter();
+        mAdapter = new BaseAdapter(getActivity());
         mRvContent.setHasFixedSize(true);
         mRvContent.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvContent.addItemDecoration(new DividerItemDecoration(getContext()));

@@ -8,19 +8,19 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.easyapp.lego.adapter.annotations.LayoutId;
-import com.easyapp.lego.adapter.core.BaseItem;
-import com.easyapp.lego.adapter.core.BaseViewHolder;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.model.entity.DownloadTaskBean;
 import com.kroraina.easyreader.utils.FileUtils;
+import com.xincubate.lego.adapter.core.BaseItem;
+import com.xincubate.lego.adapter.core.BaseViewHolder;
+import com.xincubate.lego.annotation.LegoItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-@LayoutId(R.layout.item_download)
+@LegoItem
 public class DownloadItem extends BaseItem {
 
     public static List<DownloadItem> initFrom(Context context, List<DownloadTaskBean> beans){
@@ -37,7 +37,12 @@ public class DownloadItem extends BaseItem {
         this.bean = bean;
     }
 
-    private void changeBtnStyle(TextView textView,ImageView imageView,int strRes,int colorRes,int drawableRes){
+    @Override
+    public int getLayoutId() {
+        return R.layout.item_download;
+    }
+
+    private void changeBtnStyle(TextView textView, ImageView imageView, int strRes, int colorRes, int drawableRes){
         //按钮状态
         if (!textView.getText().equals(
                 context.getResources().getString(strRes))){
@@ -62,7 +67,7 @@ public class DownloadItem extends BaseItem {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder) {
+    public void onBindViewHolder(@NonNull BaseViewHolder viewHolder , int position) {
         TextView mTvTitle = viewHolder.findViewById(R.id.download_tv_title);
         TextView mTvMsg = viewHolder.findViewById(R.id.download_tv_msg);
         TextView mTvTip = viewHolder.findViewById(R.id.download_tv_tip);

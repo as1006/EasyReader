@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import com.kroraina.easyreader.service.DownloadService;
 import com.squareup.leakcanary.LeakCanary;
+import com.xincubate.lego.generate.LegoRegisterUtils;
 
 public class App extends Application {
     private static Context sInstance;
@@ -15,6 +16,8 @@ public class App extends Application {
         super.onCreate();
         sInstance = this;
         startService(new Intent(getContext(), DownloadService.class));
+
+        LegoRegisterUtils.init();
 
         // 初始化内存分析工具
         if (!LeakCanary.isInAnalyzerProcess(this)) {
