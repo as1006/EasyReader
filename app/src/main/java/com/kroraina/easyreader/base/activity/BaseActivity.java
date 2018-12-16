@@ -21,7 +21,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 public abstract class BaseActivity extends AppCompatActivity {
-    private static final int INVALID_VAL = -1;
 
     protected CompositeDisposable mDisposable;
     //ButterKnife

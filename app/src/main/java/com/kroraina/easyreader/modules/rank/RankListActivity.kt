@@ -11,16 +11,11 @@ import com.kroraina.easyreader.modules.rank.otherdetail.OtherBillBookActivity
 import kotlinx.android.synthetic.main.activity_bilboard.*
 import java.util.*
 
-/**
- * 数据的初始化，Expand的配置
- * 1. 查看Api制作数据Bean，制作相应的Adapter
- * 2. 初始化Expandable
- * 3. 制作数据获取类。
- */
 
 @NavigationBar(titleResId = R.string.nb_fragment_find_top)
 @ActivityUI(layoutId = R.layout.activity_bilboard)
-class RankListActivity : BaseMVPActivity<BillboardContract.Presenter>(), BillboardContract.View, ExpandableListView.OnGroupClickListener {
+class RankListActivity : BaseMVPActivity<BillboardContract.Presenter>(), BillboardContract.View {
+
 
     private var mBoyAdapter: BillboardAdapter? = null
     private var mGirlAdapter: BillboardAdapter? = null
@@ -90,13 +85,13 @@ class RankListActivity : BaseMVPActivity<BillboardContract.Presenter>(), Billboa
     }
 
     override fun finishRefresh(beans: BillboardPackage?) {
-        if (beans == null || beans.male == null || beans.female == null
-                || beans.male.size == 0 || beans.female.size == 0) {
+        if (beans?.male == null || beans.female == null
+                || beans.male!!.isEmpty() || beans.female!!.isEmpty()) {
             rl_refresh!!.showEmpty()
             return
         }
-        updateMaleBillboard(beans.male)
-        updateFemaleBillboard(beans.female)
+        updateMaleBillboard(beans.male!!)
+        updateFemaleBillboard(beans.female!!)
     }
 
     private fun updateMaleBillboard(disposes: List<BillboardBean>) {
@@ -136,9 +131,5 @@ class RankListActivity : BaseMVPActivity<BillboardContract.Presenter>(), Billboa
 
     override fun complete() {
         rl_refresh!!.showFinish()
-    }
-
-    override fun onGroupClick(parent: ExpandableListView, v: View, groupPosition: Int, id: Long): Boolean {
-        return false
     }
 }
