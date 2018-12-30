@@ -45,7 +45,7 @@ public class RecommendVerticalItem extends BaseItem {
     private void fillBookView(BookListBean bookBean,RelativeLayout bookView){
 
         bookView.setOnClickListener(view -> {
-            BookListDetailActivity.startActivity(context,bookBean.get_id());
+            BookListDetailActivity.Companion.startActivity(context,bookBean.get_id());
         });
 
         ImageView coverView = bookView.findViewById(R.id.iv_cover);

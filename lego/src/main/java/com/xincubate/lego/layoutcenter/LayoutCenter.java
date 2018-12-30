@@ -60,7 +60,8 @@ public class LayoutCenter {
      * @return
      */
     public static BaseItem buildItem(Context context, Object bean, Class<?> beanClass){
-        ItemBuilder itemBuilder = getInstance().mItemBuilders.get(beanClass);
+        Map<Class<?>,ItemBuilder> itemBuilders = getInstance().mItemBuilders;
+        ItemBuilder itemBuilder = itemBuilders.get(beanClass);
         if (itemBuilder != null){
             BaseItem beanItem = itemBuilder.build(context, bean);
             getInstance().registerViewType(beanItem.getClass());

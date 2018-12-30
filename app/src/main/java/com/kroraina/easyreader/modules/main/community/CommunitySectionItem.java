@@ -5,11 +5,12 @@ import android.support.annotation.NonNull;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.modules.community.discussion.help.HelpDiscussionActivity;
 import com.kroraina.easyreader.modules.community.discussion.review.BookReviewActivity;
 import com.kroraina.easyreader.modules.community.discussion.topic.TopicDiscussionActivity;
-import com.kroraina.easyreader.utils.ToastUtils;
+
 import com.xincubate.lego.adapter.core.BaseItem;
 import com.xincubate.lego.adapter.core.BaseViewHolder;
 import com.xincubate.lego.annotation.LegoItem;
@@ -50,7 +51,7 @@ public class CommunitySectionItem extends BaseItem {
         } else if (communityType == CommunityType.REVIEW){
             startActivity(BookReviewActivity.class);
         } else if (communityType == CommunityType.HOT){
-            ToastUtils.show("还没完成");
+            ToastUtils.showShort("还没完成");
         } else {
             TopicDiscussionActivity.startActivity(context,communityType);
         }

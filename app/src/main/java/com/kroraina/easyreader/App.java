@@ -4,28 +4,17 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 
+import com.blankj.utilcode.util.Utils;
 import com.kroraina.easyreader.service.DownloadService;
-import com.squareup.leakcanary.LeakCanary;
 import com.xincubate.lego.generate.LegoRegisterUtils;
 
 public class App extends Application {
-    private static Context sInstance;
-
     @Override
     public void onCreate() {
         super.onCreate();
-        sInstance = this;
-        startService(new Intent(getContext(), DownloadService.class));
+        Utils.init(this);
+        startService(new Intent(this, DownloadService.class));
 
         LegoRegisterUtils.init();
-
-        // 初始化内存分析工具
-        if (!LeakCanary.isInAnalyzerProcess(this)) {
-            LeakCanary.install(this);
-        }
-    }
-
-    public static Context getContext(){
-        return sInstance;
     }
 }

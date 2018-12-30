@@ -2,6 +2,7 @@ package com.kroraina.easyreader.model.local;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.blankj.utilcode.util.Utils;
 import com.kroraina.easyreader.App;
 import com.kroraina.easyreader.model.gen.DaoMaster;
 import com.kroraina.easyreader.model.gen.DaoSession;
@@ -19,7 +20,7 @@ public class DaoDbHelper {
 
     private DaoDbHelper(){
         //封装数据库的创建、更新、删除
-        DaoMaster.DevOpenHelper openHelper = new MyOpenHelper(App.getContext(),Constant.DATABASE_PATH + DB_NAME,null);
+        DaoMaster.DevOpenHelper openHelper = new MyOpenHelper(Utils.getApp(),Constant.DATABASE_PATH + DB_NAME,null);
         //获取数据库
         mDb = openHelper.getWritableDatabase();
         //封装数据库中表的创建、更新、删除

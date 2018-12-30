@@ -2,6 +2,7 @@ package com.kroraina.easyreader.modules.main
 
 import android.support.v4.app.Fragment
 import android.widget.Toast
+import com.blankj.utilcode.util.ToastUtils
 
 import com.kroraina.easyreader.R
 import com.kroraina.easyreader.base.activity.BaseTabActivity
@@ -34,20 +35,14 @@ class MainActivity : BaseTabActivity() {
     override fun onBackPressed() {
         if (!isPrepareFinish) {
             tab_vp.postDelayed(
-                    { isPrepareFinish = false }, EXIT_WAIT_INTERVAL.toLong()
+                    { isPrepareFinish = false }, 2000
             )
             isPrepareFinish = true
-            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show()
+            ToastUtils.showLong("再按一次退出")
         } else {
             super.onBackPressed()
         }
     }
 
-    companion object {
 
-        /**
-         * 两次返回键，退出app
-         */
-        private const val EXIT_WAIT_INTERVAL = 2000
-    }
 }

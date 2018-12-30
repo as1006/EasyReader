@@ -2,6 +2,7 @@ package com.kroraina.easyreader.model.local;
 
 import android.util.Log;
 
+import com.blankj.utilcode.util.CloseUtils;
 import com.kroraina.easyreader.model.bean.ChapterInfoBean;
 import com.kroraina.easyreader.model.entity.BookChapterBean;
 import com.kroraina.easyreader.model.entity.BookRecordBean;
@@ -16,7 +17,6 @@ import com.kroraina.easyreader.model.gen.SearchHistoryBeanDao;
 import com.kroraina.easyreader.utils.BookManager;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.FileUtils;
-import com.kroraina.easyreader.utils.IOUtils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -118,7 +118,7 @@ public class BookRepository {
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
-            IOUtils.close(writer);
+            CloseUtils.closeIOQuietly(writer);
         }
     }
 
@@ -189,7 +189,7 @@ public class BookRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
-            IOUtils.close(reader);
+            CloseUtils.closeIOQuietly(reader);
         }
 
         ChapterInfoBean bean = new ChapterInfoBean();

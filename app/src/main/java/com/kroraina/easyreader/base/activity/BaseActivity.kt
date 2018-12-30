@@ -139,7 +139,7 @@ abstract class BaseActivity : AppCompatActivity() {
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setDisplayShowHomeEnabled(true)
         }
-        mToolbar!!.setNavigationOnClickListener { v -> finish() }
+        mToolbar!!.setNavigationOnClickListener { finish() }
         return actionBar
     }
 

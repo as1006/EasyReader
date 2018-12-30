@@ -6,7 +6,7 @@
     android:background="@color/nb.widget.button.normal">
 
     <LinearLayout
-        android:id="@+id/ll_category_container"
+        android:id="@+id/categoryEntry"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -34,7 +34,7 @@
         android:layout_marginBottom="10dp"/>
 
     <LinearLayout
-        android:id="@+id/ll_rank_container"
+        android:id="@+id/rankEntry"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -62,7 +62,7 @@
         android:layout_marginBottom="10dp"/>
 
     <LinearLayout
-        android:id="@+id/ll_booksheet_container"
+        android:id="@+id/sheetEntry"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

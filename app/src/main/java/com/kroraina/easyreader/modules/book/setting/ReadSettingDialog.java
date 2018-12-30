@@ -19,13 +19,13 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.SizeUtils;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.modules.book.read.ReadActivity;
 import com.kroraina.easyreader.ui.widget.page.PageLoader;
 import com.kroraina.easyreader.ui.widget.page.PageMode;
 import com.kroraina.easyreader.ui.widget.page.PageStyle;
 import com.kroraina.easyreader.utils.BrightnessUtils;
-import com.kroraina.easyreader.utils.ScreenUtils;
 
 import java.util.Arrays;
 
@@ -269,7 +269,7 @@ public class ReadSettingDialog extends Dialog {
         mCbFontDefault.setOnCheckedChangeListener(
                 (buttonView, isChecked) -> {
                     if (isChecked) {
-                        int fontSize = ScreenUtils.dpToPx(DEFAULT_TEXT_SIZE);
+                        int fontSize = SizeUtils.dp2px(DEFAULT_TEXT_SIZE);
                         mTvFont.setText(fontSize + "");
                         mPageLoader.setTextSize(fontSize);
                     }

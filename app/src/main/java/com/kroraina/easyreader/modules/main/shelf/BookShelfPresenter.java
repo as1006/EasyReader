@@ -25,7 +25,6 @@ import io.reactivex.functions.Function;
 
 public class BookShelfPresenter extends RxPresenter<BookShelfContract.View>
         implements BookShelfContract.Presenter {
-    private static final String TAG = "BookStorePresenter";
 
     @Override
     public void refreshCollBooks() {

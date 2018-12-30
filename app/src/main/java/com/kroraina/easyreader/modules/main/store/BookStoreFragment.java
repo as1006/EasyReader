@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseActivity;
 import com.kroraina.easyreader.base.fragment.BaseMVPFragment;
@@ -24,7 +25,6 @@ import com.kroraina.easyreader.modules.search.SearchActivity;
 import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
 import com.kroraina.easyreader.utils.PermissionsChecker;
-import com.kroraina.easyreader.utils.ToastUtils;
 import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
@@ -205,7 +205,7 @@ public class BookStoreFragment extends BaseMVPFragment<BookStoreContract.Present
                     startActivity(intent);
 
                 } else {
-                    ToastUtils.show("用户拒绝开启读写权限");
+                    ToastUtils.showShort("用户拒绝开启读写权限");
                 }
                 return;
             }

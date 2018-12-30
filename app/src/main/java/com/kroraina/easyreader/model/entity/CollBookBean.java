@@ -3,6 +3,7 @@ package com.kroraina.easyreader.model.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.blankj.utilcode.util.Utils;
 import com.kroraina.easyreader.App;
 import com.kroraina.easyreader.model.gen.BookChapterBeanDao;
 import com.kroraina.easyreader.model.gen.CollBookBeanDao;
@@ -80,7 +81,7 @@ public class CollBookBean implements Parcelable{
     }
 
     public String getTitle() {
-        return StringUtils.convertCC(title, App.getContext());
+        return StringUtils.convertCC(title, Utils.getApp());
     }
 
     public void setTitle(String title) {
@@ -88,7 +89,7 @@ public class CollBookBean implements Parcelable{
     }
 
     public String getAuthor() {
-        return StringUtils.convertCC(author, App.getContext());
+        return StringUtils.convertCC(author, Utils.getApp());
     }
 
     public void setAuthor(String author) {
@@ -96,7 +97,7 @@ public class CollBookBean implements Parcelable{
     }
 
     public String getShortIntro() {
-        return StringUtils.convertCC(shortIntro, App.getContext());
+        return StringUtils.convertCC(shortIntro, Utils.getApp());
     }
 
     public void setShortIntro(String shortIntro) {
@@ -104,7 +105,7 @@ public class CollBookBean implements Parcelable{
     }
 
     public String getCover() {
-        return StringUtils.convertCC(cover, App.getContext());
+        return StringUtils.convertCC(cover, Utils.getApp());
     }
 
     public void setCover(String cover) {
@@ -128,7 +129,7 @@ public class CollBookBean implements Parcelable{
     }
 
     public String getUpdated() {
-        return StringUtils.convertCC(updated, App.getContext());
+        return StringUtils.convertCC(updated, Utils.getApp());
     }
 
     public void setUpdated(String updated) {
@@ -144,7 +145,7 @@ public class CollBookBean implements Parcelable{
     }
 
     public String getLastChapter() {
-        return StringUtils.convertCC(lastChapter, App.getContext());
+        return StringUtils.convertCC(lastChapter, Utils.getApp());
     }
 
     public void setLastChapter(String lastChapter) {
@@ -168,7 +169,7 @@ public class CollBookBean implements Parcelable{
     }
 
     public String getLastRead() {
-        return StringUtils.convertCC(lastRead, App.getContext());
+        return StringUtils.convertCC(lastRead, Utils.getApp());
     }
 
     public void setLastRead(String lastRead) {

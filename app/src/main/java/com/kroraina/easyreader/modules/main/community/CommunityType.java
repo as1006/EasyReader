@@ -3,6 +3,7 @@ package com.kroraina.easyreader.modules.main.community;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 
+import com.blankj.utilcode.util.Utils;
 import com.kroraina.easyreader.App;
 import com.kroraina.easyreader.R;
 
@@ -24,7 +25,7 @@ public enum CommunityType {
     private String netName;
     private int iconId;
     CommunityType(@StringRes int typeId,String netName,@DrawableRes int iconId){
-        this.typeName = App.getContext().getResources().getString(typeId);
+        this.typeName = Utils.getApp().getString(typeId);
         this.netName = netName;
         this.iconId = iconId;
     }

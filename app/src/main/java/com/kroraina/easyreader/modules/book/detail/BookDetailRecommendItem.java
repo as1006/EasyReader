@@ -42,7 +42,7 @@ public class BookDetailRecommendItem extends BaseItem {
 
     @Override
     public void onClick() {
-        BookListDetailActivity.startActivity(context,bean.getId());
+        BookListDetailActivity.Companion.startActivity(context,bean.getId());
     }
 
     @Override

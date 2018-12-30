@@ -3,6 +3,7 @@ package com.kroraina.easyreader.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.blankj.utilcode.util.Utils;
 import com.kroraina.easyreader.App;
 
 
@@ -14,7 +15,7 @@ public class SharedPreUtils {
     private SharedPreferences.Editor sharedWritable;
 
     private SharedPreUtils(){
-        sharedReadable = App.getContext()
+        sharedReadable = Utils.getApp()
                 .getSharedPreferences(SHARED_NAME, Context.MODE_MULTI_PROCESS);
         sharedWritable = sharedReadable.edit();
     }

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
 import com.kroraina.easyreader.base.annotations.FragmentUI;
@@ -31,7 +32,6 @@ import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.ScrollRefreshRecyclerView;
 import com.kroraina.easyreader.utils.PermissionsChecker;
 import com.kroraina.easyreader.utils.RxUtils;
-import com.kroraina.easyreader.utils.ToastUtils;
 
 import java.util.List;
 
@@ -62,12 +62,7 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
         mToolbar.setTitle(R.string.nb_fragment_title_bookshelf);
         setUpAdapter();
 
-        mRvContent.getEmptyView().findViewById(R.id.book_shelf_tv_add).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.show("出门右转是书城");
-            }
-        });
+        mRvContent.getEmptyView().findViewById(R.id.book_shelf_tv_add).setOnClickListener(v -> ToastUtils.showShort("出门右转是书城"));
     }
 
     private void setUpAdapter() {
@@ -88,7 +83,7 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
                 .subscribe(
                         event -> {
                             //使用Toast提示
-                            ToastUtils.show(event.message);
+                            ToastUtils.showShort(event.message);
                         }
                 );
         addDisposable(donwloadDisp);
@@ -117,9 +112,7 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
                                 AlertDialog tipDialog = new AlertDialog.Builder(getContext())
                                         .setTitle("您的任务正在加载")
                                         .setMessage("先请暂停任务再进行删除")
-                                        .setPositiveButton("确定", (dialog, which) -> {
-                                            dialog.dismiss();
-                                        }).create();
+                                        .setPositiveButton("确定", (dialog, which) -> dialog.dismiss()).create();
                                 tipDialog.show();
                             }
                         }
@@ -183,7 +176,6 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
 
     /**
      * 默认删除本地文件
-     *
      * @param collBook
      */
     private void deleteBook(CollBookBean collBook) {
@@ -324,9 +316,8 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
                     startActivity(intent);
 
                 } else {
-                    ToastUtils.show("用户拒绝开启读写权限");
+                    ToastUtils.showShort("用户拒绝开启读写权限");
                 }
-                return;
             }
         }
     }

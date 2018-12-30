@@ -33,6 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.BarUtils;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
 import com.kroraina.easyreader.model.entity.BookChapterBean;
@@ -49,7 +50,6 @@ import com.kroraina.easyreader.utils.BrightnessUtils;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.LogUtils;
 import com.kroraina.easyreader.utils.RxUtils;
-import com.kroraina.easyreader.utils.ScreenUtils;
 import com.kroraina.easyreader.utils.StringUtils;
 import com.kroraina.easyreader.utils.SystemBarUtils;
 
@@ -287,9 +287,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
     }
 
     private void initTopMenu() {
-        if (Build.VERSION.SDK_INT >= 19) {
-            mAblTopMenu.setPadding(0, ScreenUtils.getStatusBarHeight(), 0, 0);
-        }
+        mAblTopMenu.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0);
     }
 
     private void initBottomMenu() {
@@ -297,7 +295,7 @@ public class ReadActivity extends BaseMVPActivity<ReadContract.Presenter>
         if (ReadSettingManager.getInstance().isFullScreen()) {
             //还需要设置mBottomMenu的底部高度
             ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) mLlBottomMenu.getLayoutParams();
-            params.bottomMargin = ScreenUtils.getNavigationBarHeight();
+            params.bottomMargin = BarUtils.getNavBarHeight();
             mLlBottomMenu.setLayoutParams(params);
         } else {
             //设置mBottomMenu的底部距离

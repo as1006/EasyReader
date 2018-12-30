@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.base.activity.BaseMVPActivity;
@@ -28,7 +29,6 @@ import com.kroraina.easyreader.ui.widget.itemdecoration.DividerItemDecoration;
 import com.kroraina.easyreader.ui.widget.refresh.RefreshLayout;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.StringUtils;
-import com.kroraina.easyreader.utils.ToastUtils;
 import com.xincubate.lego.adapter.core.BaseAdapter;
 
 import java.util.List;
@@ -287,7 +287,7 @@ public class BookDetailActivity extends BaseMVPActivity<BookDetailContract.Prese
         if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
-        ToastUtils.show("加入书架失败，请检查网络");
+        ToastUtils.showShort("加入书架失败，请检查网络");
     }
 
     @Override
@@ -295,7 +295,7 @@ public class BookDetailActivity extends BaseMVPActivity<BookDetailContract.Prese
         if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
-        ToastUtils.show("加入书架成功");
+        ToastUtils.showShort("加入书架成功");
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.Toolbar
+import com.blankj.utilcode.util.ToastUtils
 import com.kroraina.easyreader.R
 import com.kroraina.easyreader.base.activity.BaseTabActivity
 import com.kroraina.easyreader.model.entity.CollBookBean
@@ -12,7 +13,6 @@ import com.kroraina.easyreader.modules.local.BaseFileFragment.OnFileCheckedListe
 import com.kroraina.easyreader.utils.Constant
 import com.kroraina.easyreader.utils.MD5Utils
 import com.kroraina.easyreader.utils.StringUtils
-import com.kroraina.easyreader.utils.ToastUtils
 import kotlinx.android.synthetic.main.activity_file_system.*
 import java.io.File
 import java.util.*
@@ -109,7 +109,7 @@ class FileSystemActivity : BaseTabActivity() {
             //改变是否可以全选
             changeCheckedAllStatus()
             //提示加入书架成功
-            ToastUtils.show(resources.getString(R.string.nb_file_add_succeed, collBooks.size))
+            ToastUtils.showShort(resources.getString(R.string.nb_file_add_succeed, collBooks.size))
 
         }
 
@@ -122,7 +122,7 @@ class FileSystemActivity : BaseTabActivity() {
                         //删除选中的文件
                         mCurFragment!!.deleteCheckedFiles()
                         //提示删除文件成功
-                        ToastUtils.show("删除文件成功")
+                        ToastUtils.showShort("删除文件成功")
                     }
                     .setNegativeButton(resources.getString(R.string.nb_common_cancel), null)
                     .show()

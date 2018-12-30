@@ -1,8 +1,8 @@
 package com.kroraina.easyreader.modules.book.setting;
 
+import com.blankj.utilcode.util.SizeUtils;
 import com.kroraina.easyreader.ui.widget.page.PageMode;
 import com.kroraina.easyreader.ui.widget.page.PageStyle;
-import com.kroraina.easyreader.utils.ScreenUtils;
 import com.kroraina.easyreader.utils.SharedPreUtils;
 
 /**
@@ -89,7 +89,7 @@ public class ReadSettingManager {
     }
 
     public int getTextSize() {
-        return sharedPreUtils.getInt(SHARED_READ_TEXT_SIZE, ScreenUtils.spToPx(DEFAULT_TEXT_SIZE));
+        return sharedPreUtils.getInt(SHARED_READ_TEXT_SIZE, SizeUtils.sp2px(DEFAULT_TEXT_SIZE));
     }
 
     public boolean isDefaultTextSize() {

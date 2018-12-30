@@ -7,6 +7,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import com.blankj.utilcode.util.NetworkUtils;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
 import com.kroraina.easyreader.base.service.BaseService;
@@ -20,7 +21,6 @@ import com.kroraina.easyreader.model.local.LocalRepository;
 import com.kroraina.easyreader.model.remote.RemoteRepository;
 import com.kroraina.easyreader.utils.BookManager;
 import com.kroraina.easyreader.utils.LogUtils;
-import com.kroraina.easyreader.utils.NetworkUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -230,7 +230,8 @@ public class DownloadService extends BaseService {
                 }
 
                 //判断网络是否出问题
-                if (!NetworkUtils.isAvailable()){
+
+                if (!NetworkUtils.isConnected()){
                     //章节加载失败
                     result = LOAD_ERROR;
                     break;

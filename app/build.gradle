@@ -46,7 +46,7 @@ dependencies {
     implementation project(':lego-annotations')
     kapt project(':lego-compiler')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
 
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
@@ -74,7 +74,10 @@ dependencies {
 
     // AndroidTagGroup
     implementation 'me.gujun.android.taggroup:library:1.4@aar'
-    // Android Leak Analysis
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'com.blankj:utilcode:1.22.9'
+
 }

@@ -2,6 +2,7 @@ package com.kroraina.easyreader.modules.sheetlist;
 
 import android.support.annotation.StringRes;
 
+import com.blankj.utilcode.util.Utils;
 import com.kroraina.easyreader.App;
 import com.kroraina.easyreader.R;
 
@@ -15,7 +16,7 @@ public enum  BookListType{
     private String netName;
 
     BookListType(@StringRes int typeName, String netName){
-        this.typeName = App.getContext().getString(typeName);
+        this.typeName = Utils.getApp().getString(typeName);
         this.netName = netName;
     }
 
