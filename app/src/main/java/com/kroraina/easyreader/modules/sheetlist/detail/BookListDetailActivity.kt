@@ -51,10 +51,10 @@ class BookListDetailActivity : BaseMVPActivity<BookListDetailContract.Presenter>
 
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
-        if (savedInstanceState != null) {
-            mDetailId = savedInstanceState.getString(EXTRA_DETAIL_ID)
+        mDetailId = if (savedInstanceState != null) {
+            savedInstanceState.getString(EXTRA_DETAIL_ID)
         } else {
-            mDetailId = intent.getStringExtra(EXTRA_DETAIL_ID)
+            intent.getStringExtra(EXTRA_DETAIL_ID)
         }
     }
 

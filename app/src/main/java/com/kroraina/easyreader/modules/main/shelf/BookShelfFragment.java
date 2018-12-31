@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
+import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.kroraina.easyreader.R;
 import com.kroraina.easyreader.RxBus;
@@ -274,7 +275,6 @@ public class BookShelfFragment extends BaseMVPFragment<BookShelfContract.Present
                     if (mPermissionsChecker == null){
                         mPermissionsChecker = new PermissionsChecker(getContext());
                     }
-
                     //获取读取和写入SD卡的权限
                     if (mPermissionsChecker.lacksPermissions(PERMISSIONS)){
                         //请求权限

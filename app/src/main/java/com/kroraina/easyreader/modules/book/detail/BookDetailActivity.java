@@ -179,7 +179,7 @@ public class BookDetailActivity extends BaseMVPActivity<BookDetailContract.Prese
     protected void processLogic() {
         super.processLogic();
         mRefreshLayout.showLoading();
-       mPresenter.refreshBookDetail(mBookId);
+        mPresenter.refreshBookDetail(mBookId);
     }
 
     @Override

@@ -85,10 +85,6 @@ public class StringUtils {
         return "";
     }
 
-    public static String toFirstCapital(String str){
-        return str.substring(0,1).toUpperCase()+str.substring(1);
-    }
-
     /**
      * 将文本中的半角字符，转换成全角字符
      * @param input
@@ -110,24 +106,6 @@ public class StringUtils {
 
             if (c[i]> 32 && c[i]< 127)    //其他符号都转换为全角
                 c[i] = (char) (c[i] + 65248);
-        }
-        return new String(c);
-    }
-
-    //功能：字符串全角转换为半角
-    public static String fullToHalf(String input)
-    {
-        char[] c = input.toCharArray();
-        for (int i = 0; i< c.length; i++)
-        {
-            if (c[i] == 12288) //全角空格
-            {
-                c[i] = (char) 32;
-                continue;
-            }
-
-            if (c[i]> 65280&& c[i]< 65375)
-                c[i] = (char) (c[i] - 65248);
         }
         return new String(c);
     }

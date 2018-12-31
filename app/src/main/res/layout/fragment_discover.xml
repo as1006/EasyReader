@@ -6,13 +6,29 @@
 
     <include layout="@layout/toolbar" />
 
-    <include layout="@layout/layout_discover_head"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/community_rv_content"
+
+
+    <com.kroraina.easyreader.ui.widget.scrollview.ReboundScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="12dp"
-        android:overScrollMode="never"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_discover_head"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/community_rv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:overScrollMode="never"/>
+        </LinearLayout>
+    </com.kroraina.easyreader.ui.widget.scrollview.ReboundScrollView>
+
+
 </LinearLayout>
 
