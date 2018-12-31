@@ -81,10 +81,10 @@ class FileSystemActivity : BaseTabActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                if (position == 0) {
-                    mCurFragment = mLocalFragment
+                mCurFragment = if (position == 0) {
+                    mLocalFragment
                 } else {
-                    mCurFragment = mCategoryFragment
+                    mCategoryFragment
                 }
                 //改变菜单状态
                 changeMenuStatus()
@@ -233,6 +233,6 @@ class FileSystemActivity : BaseTabActivity() {
     }
 
     companion object {
-        private val TAG = "FileSystemActivity"
+        private const val TAG = "FileSystemActivity"
     }
 }

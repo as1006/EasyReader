@@ -2,26 +2,23 @@ package com.kroraina.easyreader.base.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.LayoutRes
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
-
+import butterknife.ButterKnife
+import butterknife.Unbinder
 import com.kroraina.easyreader.R
 import com.kroraina.easyreader.base.annotations.ActivityUI
 import com.kroraina.easyreader.base.annotations.NavigationBar
 import com.kroraina.easyreader.utils.StatusBarCompat
-
-import butterknife.ButterKnife
-import butterknife.Unbinder
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    protected var mDisposable: CompositeDisposable? = null
+    private var mDisposable: CompositeDisposable? = null
     //ButterKnife
     private var mToolbar: Toolbar? = null
 
@@ -132,7 +129,7 @@ abstract class BaseActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    protected fun supportActionBar(toolbar: Toolbar): ActionBar? {
+    private fun supportActionBar(toolbar: Toolbar): ActionBar? {
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
         if (actionBar != null) {

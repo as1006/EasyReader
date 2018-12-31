@@ -85,8 +85,8 @@ class OtherRankDetailActivity : BaseMVPActivity<RankDetailContract.Presenter>(),
     }
 
     companion object {
-        private val EXTRA_BILL_ID = "extra_bill_id"
-        private val EXTRA_BILL_NAME = "extra_bill_name"
+        private const val EXTRA_BILL_ID = "extra_bill_id"
+        private const val EXTRA_BILL_NAME = "extra_bill_name"
         fun startActivity(context: Context, billName: String?, billId: String?) {
             val intent = Intent(context, OtherRankDetailActivity::class.java)
             intent.putExtra(EXTRA_BILL_ID, billId)

@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xincubate.lego" />
+<manifest package="com.xincubate.lego" />

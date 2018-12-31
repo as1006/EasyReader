@@ -1,11 +1,9 @@
 package com.kroraina.easyreader.modules.sheetlist.detail
 
-import com.kroraina.easyreader.model.remote.RemoteRepository
 import com.kroraina.easyreader.base.rx.RxPresenter
+import com.kroraina.easyreader.model.remote.RemoteRepository
 import com.kroraina.easyreader.utils.LogUtils
-
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 /**

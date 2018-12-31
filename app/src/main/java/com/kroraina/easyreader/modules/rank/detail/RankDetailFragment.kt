@@ -56,7 +56,7 @@ class RankDetailFragment : BaseMVPFragment<RankDetailContract.Presenter>(), Rank
     }
 
     companion object {
-        private val EXTRA_BILL_ID = "extra_bill_id"
+        private const val EXTRA_BILL_ID = "extra_bill_id"
 
         fun newInstance(billId: String?): Fragment {
             val bundle = Bundle()

@@ -1,9 +1,7 @@
 package com.kroraina.easyreader.modules.main
 
 import android.support.v4.app.Fragment
-import android.widget.Toast
 import com.blankj.utilcode.util.ToastUtils
-
 import com.kroraina.easyreader.R
 import com.kroraina.easyreader.base.activity.BaseTabActivity
 import com.kroraina.easyreader.modules.main.community.CommunityFragment
@@ -11,9 +9,7 @@ import com.kroraina.easyreader.modules.main.discover.DiscoverFragment
 import com.kroraina.easyreader.modules.main.shelf.BookShelfFragment
 import com.kroraina.easyreader.modules.main.store.BookStoreFragment
 import kotlinx.android.synthetic.main.activity_base_tab.*
-
-import java.util.ArrayList
-import java.util.Arrays
+import java.util.*
 
 class MainActivity : BaseTabActivity() {
     private var isPrepareFinish = false

@@ -166,8 +166,8 @@ class BookListDetailActivity : BaseMVPActivity<BookListDetailContract.Presenter>
 
     companion object {
 
-        private val EXTRA_DETAIL_ID = "extra_detail_id"
-        val LIMIT = 20
+        private const val EXTRA_DETAIL_ID = "extra_detail_id"
+        private const val LIMIT = 20
 
         fun startActivity(context: Context, detailId: String) {
             val intent = Intent(context, BookListDetailActivity::class.java)
