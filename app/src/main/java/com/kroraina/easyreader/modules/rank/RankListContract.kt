@@ -3,10 +3,10 @@ package com.kroraina.easyreader.modules.rank
 import com.kroraina.easyreader.base.mvp.BaseContract
 
 
-interface BillboardContract {
+interface RankListContract {
 
     interface View : BaseContract.BaseView {
-        fun finishRefresh(beans: BillboardPackage?)
+        fun finishRefresh(beans: RankListPackage?)
     }
 
     interface Presenter : BaseContract.BasePresenter<View> {

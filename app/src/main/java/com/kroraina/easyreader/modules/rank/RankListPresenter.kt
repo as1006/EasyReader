@@ -10,7 +10,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 
-class BillboardPresenter : RxPresenter<BillboardContract.View>(), BillboardContract.Presenter {
+class RankListPresenter : RxPresenter<RankListContract.View>(), RankListContract.Presenter {
 
     override fun loadBillboardList() {
         //这个最好是设定一个默认时间采用Remote加载，如果Remote加载失败则采用数据中的数据。我这里先写死吧
@@ -22,12 +22,12 @@ class BillboardPresenter : RxPresenter<BillboardContract.View>(), BillboardContr
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSuccess { value -> Schedulers.io().createWorker().schedule { LocalRepository.getInstance().saveBillboardPackage(value) } }
-                    .subscribe(object : SingleObserver<BillboardPackage> {
+                    .subscribe(object : SingleObserver<RankListPackage> {
                         override fun onSubscribe(d: Disposable) {
                             addDisposable(d)
                         }
 
-                        override fun onSuccess(value: BillboardPackage) {
+                        override fun onSuccess(value: RankListPackage) {
                             mView.finishRefresh(value)
                             mView.complete()
                         }

@@ -33,8 +33,8 @@
         <activity android:name=".modules.sheetlist.BookSheetListActivity">
         </activity>
         <activity android:name=".modules.sheetlist.detail.BookListDetailActivity"/>
-        <activity android:name=".modules.rank.detail.BillBookActivity"/>
-        <activity android:name=".modules.rank.otherdetail.OtherBillBookActivity"/>
+        <activity android:name=".modules.rank.detail.RankDetailActivity"/>
+        <activity android:name=".modules.rank.detail.OtherRankDetailActivity"/>
         <activity android:name=".modules.book.detail.BookDetailActivity"/>
         <activity android:name=".modules.local.DownloadActivity"/>
         <activity android:name=".modules.book.read.ReadActivity">

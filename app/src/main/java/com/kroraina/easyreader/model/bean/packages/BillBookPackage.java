@@ -1,7 +1,7 @@
 package com.kroraina.easyreader.model.bean.packages;
 
 import com.google.gson.annotations.SerializedName;
-import com.kroraina.easyreader.model.bean.BillBookBean;
+import com.kroraina.easyreader.modules.rank.detail.RankDetailBean;
 
 import java.util.List;
 
@@ -52,7 +52,7 @@ public class BillBookPackage extends BasePackage {
         private int priority;
         private String id;
         private int total;
-        private List<BillBookBean> books;
+        private List<RankDetailBean> books;
 
         public String get_id() {
             return _id;
@@ -166,11 +166,11 @@ public class BillBookPackage extends BasePackage {
             this.total = total;
         }
 
-        public List<BillBookBean> getBooks() {
+        public List<RankDetailBean> getBooks() {
             return books;
         }
 
-        public void setBooks(List<BillBookBean> books) {
+        public void setBooks(List<RankDetailBean> books) {
             this.books = books;
         }
     }

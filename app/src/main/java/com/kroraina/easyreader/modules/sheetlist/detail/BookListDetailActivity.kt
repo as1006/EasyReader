@@ -136,9 +136,9 @@ class BookListDetailActivity : BaseMVPActivity<BookListDetailContract.Presenter>
             val tvTitle = viewHolder.findViewById<TextView>(R.id.book_list_info_tv_title)
             val tvDesc = viewHolder.findViewById<TextView>(R.id.book_list_detail_tv_desc)
             val ivPortrait = viewHolder.findViewById<ImageView>(R.id.book_list_info_iv_cover)
-            val tvCreate = viewHolder.findViewById<TextView>(R.id.book_list_detail_tv_create)
+            //val tvCreate = viewHolder.findViewById<TextView>(R.id.book_list_detail_tv_create)
             val tvAuthor = viewHolder.findViewById<TextView>(R.id.book_list_info_tv_author)
-            val tvShare = viewHolder.findViewById<TextView>(R.id.book_list_detail_tv_share)
+            //val tvShare = viewHolder.findViewById<TextView>(R.id.book_list_detail_tv_share)
 
             if (detailBean == null) {
                 return

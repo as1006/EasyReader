@@ -2,6 +2,7 @@ package com.kroraina.easyreader.base.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -58,7 +59,7 @@ public abstract class BaseFragment extends Fragment{
     /******************************lifecycle area*****************************************/
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         int resId;
         FragmentUI fragmentUI = getClass().getAnnotation(FragmentUI.class);
         if (fragmentUI != null && fragmentUI.layoutId() != 0){

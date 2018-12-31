@@ -3,7 +3,7 @@ package com.kroraina.easyreader.model.local;
 import com.google.gson.Gson;
 import com.kroraina.easyreader.model.entity.DownloadTaskBean;
 import com.kroraina.easyreader.model.gen.DaoSession;
-import com.kroraina.easyreader.modules.rank.BillboardPackage;
+import com.kroraina.easyreader.modules.rank.RankListPackage;
 import com.kroraina.easyreader.utils.Constant;
 import com.kroraina.easyreader.utils.LogUtils;
 import com.kroraina.easyreader.utils.SharedPreUtils;
@@ -44,7 +44,7 @@ public class LocalRepository implements SaveDbHelper,GetDbHelper{
     }
 
     @Override
-    public void saveBillboardPackage(BillboardPackage bean) {
+    public void saveBillboardPackage(RankListPackage bean) {
         String json = new Gson().toJson(bean);
         SharedPreUtils.getInstance()
                 .putString(Constant.SHARED_SAVE_BILLBOARD,json);
@@ -61,14 +61,14 @@ public class LocalRepository implements SaveDbHelper,GetDbHelper{
     /***************************************read data****************************************************/
 
     @Override
-    public BillboardPackage getBillboardPackage() {
+    public RankListPackage getBillboardPackage() {
         String json = SharedPreUtils.getInstance()
                 .getString(Constant.SHARED_SAVE_BILLBOARD);
         if (json == null){
             return null;
         }
         else {
-            return new Gson().fromJson(json,BillboardPackage.class);
+            return new Gson().fromJson(json, RankListPackage.class);
         }
     }
 

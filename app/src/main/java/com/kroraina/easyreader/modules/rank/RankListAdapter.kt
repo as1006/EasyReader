@@ -16,9 +16,9 @@ import java.util.ArrayList
 import butterknife.ButterKnife
 
 
-class BillboardAdapter : BaseExpandableListAdapter() {
-    private val mGroups = ArrayList<BillboardBean>()
-    private val mChildren = ArrayList<BillboardBean>()
+class RankListAdapter : BaseExpandableListAdapter() {
+    private val mGroups = ArrayList<RankListBean>()
+    private val mChildren = ArrayList<RankListBean>()
 
     override fun getGroupCount(): Int {
         return mGroups.size
@@ -30,11 +30,11 @@ class BillboardAdapter : BaseExpandableListAdapter() {
         } else 0
     }
 
-    override fun getGroup(groupPosition: Int): BillboardBean {
+    override fun getGroup(groupPosition: Int): RankListBean {
         return mGroups[groupPosition]
     }
 
-    override fun getChild(groupPosition: Int, childPosition: Int): BillboardBean? {
+    override fun getChild(groupPosition: Int, childPosition: Int): RankListBean? {
         //只有最后一个groups才有child
         return if (groupPosition == mGroups.size - 1) {
             mChildren[childPosition]
@@ -118,12 +118,12 @@ class BillboardAdapter : BaseExpandableListAdapter() {
         return true
     }
 
-    fun addGroups(beans: List<BillboardBean>) {
+    fun addGroups(beans: List<RankListBean>) {
         mGroups.addAll(beans)
         notifyDataSetChanged()
     }
 
-    fun addChildren(beans: List<BillboardBean>) {
+    fun addChildren(beans: List<RankListBean>) {
         mChildren.addAll(beans)
         notifyDataSetChanged()
     }

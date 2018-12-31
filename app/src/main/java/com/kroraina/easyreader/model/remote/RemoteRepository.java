@@ -1,6 +1,6 @@
 package com.kroraina.easyreader.model.remote;
 
-import com.kroraina.easyreader.model.bean.BillBookBean;
+import com.kroraina.easyreader.modules.rank.detail.RankDetailBean;
 import com.kroraina.easyreader.model.bean.BookCommentBean;
 import com.kroraina.easyreader.model.bean.BookDetailRecommendListBean;
 import com.kroraina.easyreader.model.bean.BookHelpsBean;
@@ -22,7 +22,7 @@ import com.kroraina.easyreader.modules.category.BookSortPackage;
 import com.kroraina.easyreader.modules.category.detail.SortBookBean;
 import com.kroraina.easyreader.modules.community.detail.HelpsDetailBean;
 import com.kroraina.easyreader.modules.community.discuss.BookDiscussBean;
-import com.kroraina.easyreader.modules.rank.BillboardPackage;
+import com.kroraina.easyreader.modules.rank.RankListPackage;
 import com.kroraina.easyreader.modules.search.SearchBookPackage;
 import com.kroraina.easyreader.modules.sheetlist.detail.BookListDetailBean;
 
@@ -180,7 +180,7 @@ public class RemoteRepository {
      * 排行榜的类型
      * @return
      */
-    public Single<BillboardPackage> getBillboardPackage(){
+    public Single<RankListPackage> getBillboardPackage(){
         return mBookApi.getBillboardPackage();
     }
 
@@ -189,7 +189,7 @@ public class RemoteRepository {
      * @param billId
      * @return
      */
-    public Single<List<BillBookBean>> getBillBooks(String billId){
+    public Single<List<RankDetailBean>> getBillBooks(String billId){
         return mBookApi.getBillBookPackage(billId)
                 .map(bean -> bean.getRanking().getBooks());
     }

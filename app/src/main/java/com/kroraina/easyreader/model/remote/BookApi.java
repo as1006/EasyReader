@@ -25,7 +25,7 @@ import com.kroraina.easyreader.modules.book.detail.BookDetailBean;
 import com.kroraina.easyreader.modules.category.BookSortPackage;
 import com.kroraina.easyreader.modules.community.discuss.BookDiscussPackage;
 import com.kroraina.easyreader.modules.community.shortcomment.BookShortCommentPackage;
-import com.kroraina.easyreader.modules.rank.BillboardPackage;
+import com.kroraina.easyreader.modules.rank.RankListPackage;
 import com.kroraina.easyreader.modules.search.SearchBookPackage;
 
 import io.reactivex.Single;
@@ -187,7 +187,7 @@ public interface BookApi {
      * @return
      */
     @GET("/ranking/gender")
-    Single<BillboardPackage> getBillboardPackage();
+    Single<RankListPackage> getBillboardPackage();
 
     /**
      * 获取单一排行榜
