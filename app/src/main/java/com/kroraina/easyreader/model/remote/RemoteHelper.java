@@ -1,7 +1,9 @@
 package com.kroraina.easyreader.model.remote;
 
 import android.util.Log;
+import android.webkit.WebSettings;
 
+import com.blankj.utilcode.util.Utils;
 import com.kroraina.easyreader.utils.Constant;
 
 import java.io.IOException;
@@ -23,6 +25,17 @@ public class RemoteHelper {
     private OkHttpClient mOkHttpClient;
     private RemoteHelper(){
         mOkHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request()
+                                .newBuilder()
+                                .removeHeader("User-Agent")//移除旧的
+                                .addHeader("User-Agent", WebSettings.getDefaultUserAgent(Utils.getApp()))//添加真正的头部
+                                .build();
+                        return chain.proceed(request);
+                    }
+                })
                 .addNetworkInterceptor(
                         new Interceptor() {
                             @Override

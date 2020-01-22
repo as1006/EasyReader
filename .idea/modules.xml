@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EasyReader.iml" filepath="$PROJECT_DIR$/EasyReader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/EasyReader-app.iml" filepath="$PROJECT_DIR$/app/EasyReader-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lego/EasyReader-lego.iml" filepath="$PROJECT_DIR$/lego/EasyReader-lego.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lego-annotations/EasyReader-lego-annotations.iml" filepath="$PROJECT_DIR$/lego-annotations/EasyReader-lego-annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lego-compiler/EasyReader-lego-compiler.iml" filepath="$PROJECT_DIR$/lego-compiler/EasyReader-lego-compiler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GitProject-EasyReader.iml" filepath="$PROJECT_DIR$/GitProject-EasyReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lego/lego.iml" filepath="$PROJECT_DIR$/lego/lego.iml" />
       <module fileurl="file://$PROJECT_DIR$/lego-annotations/lego-annotations.iml" filepath="$PROJECT_DIR$/lego-annotations/lego-annotations.iml" />
